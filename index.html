@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Find A Studio</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/findastudio.css">
+  <link rel="stylesheet" type="text/css" href="fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+
+  <script src="js/bootstrap.bundle.js"></script>
+</head>
+<body>
+  <div class="container-fluid vh-100 custom_anchor" id="main_anchor"> <!-- Main container -->
+
+    <!-- topbar -->
+    <div class="row navbar">
+      <div class="col-3">
+        <nav class="navbar-expand-md">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-dark navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <div class="navbar-nav px-3">
+              <a class="nav-item nav-link" href="#studios_anchor">Studios</a>
+              <a class="nav-item nav-link" href="#map_anchor">Map</a>
+              <a class="nav-item nav-link" href="#reviews_anchor">Reviews</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="col-6 text-center align-self-center">
+        <a class="nav-link d-inline-block " href="#main_anchor" title="Home"><h1>Find A Studio</h1></a>
+      </div>
+      <div class="col-3 text-end align-self-center">
+        <a class="nav-link d-inline-block"><h1 class="bi-person px-4"></h1></a>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="row h-50">
+      <div class="col-12 h-100">
+        <img src="img/Studio1.jpg" alt="StudioImage" class="h-100 w-100 object-fit-cover"> <!-- class "h-..." is always relative to the parents height. This class doesn't seem to be automatically transisting, therefore some "h-..." class must be applied to every parent for this to work: img -> col -> row -> "main" container-fluid -->
+      </div>
+    </div>
+
+    <!-- Studios -->
+    <div class="row pt-5">
+      <div class="col-12 text-center"><h2 class="custom_anchor" id=studios_anchor>Studios</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-6">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Studio</th>
+              <th scope="col">Location</th>
+              <th scope="col">Next available time slot</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>Studio A</td>
+              <td>1010</td>
+              <td>Today, 10:00</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Studio B</td>
+              <td>1020</td>
+              <td>Tomorrow, 14:00</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Studio C</td>
+              <td>1030</td>
+              <td>Today, 09:00</td>
+            </tr>
+        </table>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="row pt-5">
+      <div class="col-12 text-center"><h2 class="custom_anchor" id=map_anchor>Map</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-6">
+        <div class="bi-map text-center" style="font-size: 40vw"> <!-- Temporary Map placeholder -->
+        </div>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="row pt-5">
+        <div class="col-12 text-center"><h2 class="custom_anchor"id=reviews_anchor>Reviews</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-6">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Rating</th>
+              <th scope="col">Reviewer</th>
+              <th scope="col">Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td> ***** </td>
+              <td> Anna </td>
+              <td> Great! </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td> *** </td>
+              <td> Bernie </td>
+              <td> Okay </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td> *** </td>
+              <td> Charlie </td>
+              <td> Good. </td>
+            </tr>
+        </table>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+
+  </div> <!-- Main container end -->
+</body>
+</html>
