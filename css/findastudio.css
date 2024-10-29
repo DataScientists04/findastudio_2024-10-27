@@ -62,3 +62,15 @@ td, th {
   transform: scale(1.2);
 }
 /* click effect end */
+
+.btn-primary {
+  background-color: var(--project-color5);
+  color: var(--project-bg-color1);
+  border-color: var(--project-color1);
+}
+
+.btn-primary:hover {
+  background-color: var(--project-color1);
+  color: var(--project-bg-color);
+  border-color: var(--project-color2);
+}
