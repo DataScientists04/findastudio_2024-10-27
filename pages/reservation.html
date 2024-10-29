@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Find A Studio</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
+  <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+  
+  <script src="../js/bootstrap.bundle.js"></script>
+</head>
+<body>
+  <div class="container-fluid vh-100">
+    <nav class="navbar navbar-expand-md">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <div class="navbar-nav
+        ">
+          <a class="nav-item nav-link" href="#studios_anchor">Studios</a>
+          <a class="nav-item nav-link" href="#map_anchor">Map</a>
+          <a class="nav-item nav-link" href="#reviews_anchor">Reviews</a>
+        </div>
+        </div>
+        <div class="mx-auto order-0"> <!-- center nav-brand -->
+          <span class="nav-brand justify-content-center"><h1>Find A Studio</h1></span> <!-- center nav-brand -->
+        </div>
+        <div class="navbar-nav ms-auto"> <!-- ms-auto keeps "Login" right, when burger menu bar is extended -->
+          <a class="nav-item nav-link" href="#">Login</a>
+        </div>
+        </nav>
+        <div class="row h-50">
+          <div class="col-12 h-100">
+            <img src="../img/Studio1.jpg" alt="StudioImage" class="h-100 w-100 object-fit-cover"> <!-- class "h-..." is always relative to the parents height. This class doesn't seem to be automatically transisting, therefore some "h-..." class must be applied to every parent for this to work: img -> col -> row -> "main" container-fluid -->
+          </div>
+        </div>
+
+        <!-- Reservation form -->
+        <div class="row">
+          <div class="col-12"><h2 id=reservation_anchor>Reservation</h2></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-6">
+            <form>
+                <div class="mb-3"> 
+                    <label for="name" class="form-label">Name</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="surname" aria-describedby="surnameHelp" placeholder="Surname">
+                        </div>
+                    </div>
+                    <div id="nameHelp" class="form-text">Please enter your name.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Please enter your email address.</div>
+                </div>
+                <div class="mb-3"> 
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" aria-describedby="phoneHelp">
+                    <div id="phoneHelp" class="form-text">Please enter your phone number.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="studio" class="form-label">Studio</label>
+                    <input type="text" class="form-control" id="studio" aria-describedby="studioHelp">
+                    <div id="studioHelp" class="form-text">Please enter the studio you want to reserve.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" aria-describedby="dateHelp">
+                    <div id="dateHelp" class="form-text">Please enter the date you want to reserve the studio for.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="time" class="form-label">Time</label>
+                    <input type="time" class="form-control" id="time" aria-describedby="timeHelp">
+                    <div id="timeHelp" class="form-text">Please enter the time you want to reserve the studio for.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Reserve</button>
+            </form>
+          </div>
+          <div class="col-sm-3">
+          </div>
+        </div>
+    </div>
+</body>
+
+</html>
