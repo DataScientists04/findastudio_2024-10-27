@@ -5,8 +5,8 @@
 <head>
   <title>Find A Studio</title>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
 
   <script async src="../js/bootstrap.bundle.js"></script>
   <script async src="../js/studioList.js"></script>
@@ -35,33 +35,45 @@
         <br>
         <br>
         <br>
-
-        <!-- Cards to display the studios - toDo filters above-->
+        <!-- filters -->
          
-        <div class="row p-5" id = "cards">
-            <div class="card sm-3 m-4 col-3" style="width: 18rem; height: 18rem;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12"><h3>placeholderStudio1</h3></div>
+        <div class="wrapper">
+            <div id = "search-container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="search" placeholder="Search name" id="search-name">
+                        <button id="search">Search</button>
                     </div>
                 </div>
-            </div>
-            <div class="card sm-3 m-4 col-3" style="width: 18rem; height: 18rem;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12"><h2>placeholderStudio2</h2></div>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="col-12"><h3>placeholderLocation</h3>
+            </div>        
+        </div>
+
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Filters</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="studioType">Studio Type</label>
+                                <select class="form-select" id="studioType">
+                                    <option value="all">All</option>
+                                    <option value="Recording">Recording</option>
+                                    <option value="Rehearsal">Rehearsal</option>
+                                    <option value="Production">Production</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+        <!-- Cards to display the studios - toDo filters above-->
+         
+        <div class="row p-5" id = "cards">
+            
         </div>
-
-
-
     </div>
 
     

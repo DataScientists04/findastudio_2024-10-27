@@ -74,3 +74,53 @@ td, th {
   color: var(--project-bg-color);
   border-color: var(--project-color2);
 }
+
+.card {
+  background-color: var(--project-color5);
+  color: var(--project-color1);
+}
+
+.card:hover {   /* hover effect */
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:active {  /* click effect */
+
+  filter: brightness(1.5);
+  transition: filter 0.1s ease;
+}
+
+#search {
+  background-color: var(--project-color5);
+  color: var(--project-color1);
+}
+
+#search:hover {
+  background-color: var(--project-color1);
+  color: var(--project-bg-color);
+}
+
+#search:active {
+  filter: brightness(1.5);
+  transition: filter 0.1s ease;
+}
+
+#search-name {
+  background-color: var(--project-color1);
+  color: var(--project-color5);
+}
+
+#search-container button {
+  background-color: var(--project-color5);
+  color: var(--project-color1);
+  padding: 10px;
+  border-color: var(--project-color4);
+}
+
+#search-container input {
+  background-color: var(--project-color1);
+  color: var(--project-color5);
+  padding: 10px;
+}
