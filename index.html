@@ -9,6 +9,9 @@
   <link rel="stylesheet" type="text/css" href="fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
 
   <script src="js/bootstrap.bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="js/seeMore.js"></script>
+
 </head>
 <body>
   <div class="container-fluid vh-100 custom_anchor" id="main_anchor"> <!-- Main container -->
@@ -80,7 +83,32 @@
               <td>1030</td>
               <td>Today, 09:00</td>
             </tr>
+             <!-- Additional studios, initially hidden -->
+            <tr class="more-studios" style="display: none;">
+              <th scope="row"></th>
+              <td>Studio D</td>
+              <td>1180</td>
+              <td>Today, 11:00</td>
+            </tr>
+            <tr class="more-studios" style="display: none;">
+              <th scope="row"></th>
+              <td>Studio E</td>
+              <td>1040</td>
+              <td>Tomorrow, 15:00</td>
+            </tr>
+          </tbody>
         </table>
+      
+        <!-- See more studios button -->
+        <div class="text-center">
+          <button id="seeMoreStudios" class="btn btn-primary">See more studios</button>
+        </div>
+
+        <!-- See all studios link, hidden initially -->
+        <div id="seeAllStudios" class="text-center mt-3" style="display: none;">
+          <a style="color: #CCDAD1;" href="pages/studiolist.html">&gt See all studios &lt</a>
+        </div>
+      
       </div>
       <div class="col-sm-3">
       </div>
