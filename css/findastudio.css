@@ -4,12 +4,7 @@ font-family: "project-font1";
 src: url("../fonts/A-new-Heard-LJ-Design-Studios-Normal/A new Heard.otf") format("opentype");
 }
 @font-face {
-  /* VERY musical font. Currently not in use */
 font-family: "project-font2";
-src: url("../fonts/ChloesMusic/ChloesMusic.ttf") format("opentype");
-}
-@font-face {
-font-family: "project-font3";
 src: url("../fonts/NEONCLUBMUSIC-Medium/NEON CLUB MUSIC.otf") format("opentype");
 }
 
@@ -19,8 +14,8 @@ src: url("../fonts/NEONCLUBMUSIC-Medium/NEON CLUB MUSIC.otf") format("opentype")
   --project-color1: #CCDAD1; /* normal color & h1 */
   --project-color2: #9CAEA9; /* on hover */
   --project-color3: #788585; /* h2 */
-  --project-color4: #6F6866;
-  --project-color5: #1c1c1c; /* item backgound (e.g. tables). used to be #38302E */
+  --project-color4: #343636;
+  --project-color5: #1c1c1c;
 }
 
 /* styling */
@@ -30,14 +25,14 @@ body {
   color: var(--project-color1);
 }
 h1 {
-  font-family: "project-font3";
+  font-family: "project-font2";
   color: var(--project-color1);
 }
 .nav-link h1 {
   color: inherit;
 }
 h2 {
-  font-family: "project-font3";
+  font-family: "project-font2";
   color: var(--project-color3);
 }
 td, th {
@@ -55,24 +50,26 @@ td, th {
   color: var(--project-color2);
 }
 /* click effect */
-.navbar-toggler, .nav-item, .bi-person {
+.navbar-toggler, .nav-item, .bi-person, .btn-primary {
   transition: transform 0.3s ease;
 }
-.navbar-toggler:active, .nav-item:active, .bi-person:active {
+.navbar-toggler:active, .nav-item:active, .bi-person:active, .btn-primary:active {
   transform: scale(1.2);
 }
 /* click effect end */
 
 .btn-primary {
-  background-color: var(--project-color5);
-  color: var(--project-color1);
-  border-color: var(--project-color1);
-}
-
-.btn-primary:hover {
-  background-color: var(--project-color1);
-  color: var(--project-bg-color);
+  color: var(--project-bg-color1);
   border-color: var(--project-color2);
+  background: linear-gradient(to right, var(--project-color2) 50%, var(--project-color5) 50%);
+  transition: background-position 0.5s, color 0.5s;
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+.btn-primary:hover {
+  color: var(--project-color5);
+  border-color: var(--project-color2);
+  background-position: left bottom;
 }
 
 .card {
@@ -123,4 +120,19 @@ td, th {
   background-color: var(--project-color1);
   color: var(--project-color5);
   padding: 10px;
+}
+
+.footer {
+  background-color: var(--project-color4);
+}
+.footer .list-group {
+  background-color: inherit;
+}
+.footer .list-group .list-group-item {
+  border: none;
+  background-color: inherit;
+  color: var(--project-color1);
+}
+ .border-top {
+  border-color: var(--project-color2) !important;
 }
