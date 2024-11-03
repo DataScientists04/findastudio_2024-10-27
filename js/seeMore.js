@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('#seeMoreStudios').click(function(){
       // Slide down additional studio rows
-      $('.more-studios').slideDown();
+      $('.more-studios').slideDown("slow");
       
       // Hide the 'See more studios' button
       $(this).hide();
