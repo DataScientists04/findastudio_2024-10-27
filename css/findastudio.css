@@ -39,6 +39,10 @@ td, th {
   background-color: var(--project-color5) !important;
   color: var(--project-color1) !important;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .navbar {
   background-color: var(--project-bg-color);
@@ -46,7 +50,7 @@ td, th {
 .nav-item {
   color: var(--project-color1);
 }
-.navbar a:hover {
+.navbar a:hover, a:hover {
   color: var(--project-color2);
 }
 /* click effect */
