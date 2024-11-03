@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-  <title>Find A Studio</title>
+  <title>Studios</title>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
@@ -12,31 +12,34 @@
   <script async src="../js/studioList.js"></script>
 </head>
 <body>
-    <div class="container-fluid vh-100">
-        <nav class="navbar navbar-expand-md">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#studios_anchor">Studios</a>
-            <a class="nav-item nav-link" href="#map_anchor">Map</a>
-            <a class="nav-item nav-link" href="#reviews_anchor">Reviews</a>
-            </div>
-            <div class="mx-auto order-0">
-            <span class="nav-brand justify-content-center"><h1>Find A Studio</h1></span>
-            </div>
-            <div class="navbar-nav ms-auto">
-            <a class="nav-item nav-link" href="#">Login</a>
-            </div>
-        </div>
-        </nav>
+  <div class="container-fluid vh-100"> <!-- Main container -->
 
-        <br>
-        <br>
-        <br>
+    <!-- topbar -->
+    <div class="row navbar">
+      <div class="col-3">
+        <nav class="navbar-expand-md">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-dark navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <div class="navbar-nav px-3">
+              <a class="nav-item nav-link" href="../index.html#studios_anchor">Studios</a>
+              <a class="nav-item nav-link" href="../index.html#map_anchor">Map</a>
+              <a class="nav-item nav-link" href="../index.html#reviews_anchor">Reviews</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="col-6 text-center align-self-center">
+        <a class="nav-link d-inline-block " href="../index.html" title="Home"><h1>Find A Studio</h1></a>
+      </div>
+      <div class="col-3 text-end align-self-center">
+        <a class="nav-link d-inline-block"><h1 class="bi-person px-4"></h1></a>
+      </div>
+    </div>
+
         <!-- filters -->
-         
+
         <div class="wrapper">
             <div id = "search-container">
                 <div class="row">
@@ -45,7 +48,7 @@
                         <button id="search">Search</button>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
 
         <!-- <div class="container">
@@ -70,11 +73,36 @@
                 </div>
             </div> -->
         <!-- Cards to display the studios - toDo filters above-->
-         
+
         <div class="row p-5" id = "cards">
-            
         </div>
+
+    <!-- Footer -->
+    <div class="row pt-5 mt-5 footer">
+      <div class="col-12 text-center">
+        <h2>FindAStudio</h2>
+      </div>
+    </div>
+    <div class="row footer">
+      <div class="col-3">
+      </div>
+      <div class="col-6 text-center border-top">
+        <ul class="list-group">
+          <li class="list-group-item">
+            Contact
+          </li>
+          <li class="list-group-item">
+            About Us
+          </li>
+          <li class="list-group-item">
+            © 2024 FindAStudio
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+      </div>
     </div>
 
-    
+  </div> <!-- Main container end -->
 </body>
+</html>
