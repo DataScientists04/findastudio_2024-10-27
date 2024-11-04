@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
 
   <script src="../js/bootstrap.bundle.js"></script>
+  <script src="../js/reservation.js"></script>
 </head>
 <body>
   <div class="container-fluid vh-100"> <!-- Main container -->
@@ -46,43 +47,36 @@
       <div class="col-md-3">
       </div>
       <div class="col-md-6">
-        <form>
+        <form id="reservationForm" action="\">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="First name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="First name" required>
               </div>
               <div class="col">
-                <input type="text" class="form-control" id="surname" aria-describedby="surnameHelp" placeholder="Surname">
+                <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" required>
               </div>
             </div>
-            <div id="nameHelp" class="form-text">Please enter your name.</div>
-          </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">Please enter your email address.</div>
+            <input type="email" class="form-control" id="email" name="email" required>
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
-            <input type="tel" class="form-control" id="phone" aria-describedby="phoneHelp">
-            <div id="phoneHelp" class="form-text">Please enter your phone number.</div>
+            <input type="tel" class="form-control" id="phone" name="phone" required>
           </div>
           <div class="mb-3">
             <label for="studio" class="form-label">Studio</label>
-            <input type="text" class="form-control" id="studio" aria-describedby="studioHelp">
-            <div id="studioHelp" class="form-text">Please enter the studio you want to reserve.</div>
+            <input type="text" class="form-control" id="studio" name="studio" required>
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="date" aria-describedby="dateHelp">
-            <div id="dateHelp" class="form-text">Please enter the date you want to reserve the studio for.</div>
+            <input type="date" class="form-control" id="date" name="date" required>
           </div>
           <div class="mb-3">
             <label for="time" class="form-label">Time</label>
-            <input type="time" class="form-control" id="time" aria-describedby="timeHelp">
-            <div id="timeHelp" class="form-text">Please enter the time you want to reserve the studio for.</div>
+            <input type="time" class="form-control" id="time" name="time" required>
           </div>
           <button type="submit" class="btn btn-primary">Reserve</button>
         </form>
