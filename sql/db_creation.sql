@@ -1,4 +1,4 @@
-CREATE DATEBASE find_my_studio;
+CREATE DATABASE find_my_studio;
 
 CREATE TABLE find_my_studio.studio (
     StudioID varchar(4) Not Null,
