@@ -1,0 +1,1 @@
+INSERT INTO user values (UserID, "test", "user", "mail@test.com", "+435621", "pwrd");
