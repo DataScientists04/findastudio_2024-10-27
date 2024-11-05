@@ -71,7 +71,6 @@ for (let i = 0; i < musicStudios.length; i++) {
                 </div>
             </div>
         `
-        console.log(newElement);
         HTMLlist.appendChild(newElement);
         
     }
