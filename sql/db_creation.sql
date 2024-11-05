@@ -1,7 +1,7 @@
 CREATE DATABASE find_my_studio;
 
 CREATE TABLE find_my_studio.studio (
-    StudioID varchar(4) Not Null,
+    StudioID int Not Null AUTO_INCREMENT,
     Studio_name varchar(32) Not Null,
     City varchar(32),
     Postal_code varchar(4),
@@ -13,7 +13,7 @@ CREATE TABLE find_my_studio.studio (
     PRIMARY KEY(StudioID));
     
  CREATE TABLE find_my_studio.user (
-     UserID varchar(8) Not Null,
+     UserID int Not Null AUTO_INCREMENT,
      First_Name varchar(24),
      Last_Name varchar(24),
      Email varchar(40),
@@ -25,8 +25,8 @@ CREATE TABLE find_my_studio.studio (
 CREATE TABLE find_my_studio.reservation (
     ReservationID varchar(12),
     Reservation_Date date,
-    UserID varchar(8),
-    StudioID varchar(4),
+    UserID int,
+    StudioID int,
     
     PRIMARY KEY(ReservationID),
     FOREIGN KEY(UserID) REFERENCES USER(userID),
