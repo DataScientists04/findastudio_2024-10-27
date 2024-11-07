@@ -1,3 +1,4 @@
+<?php include '../php/studioListFilter.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -8,8 +9,9 @@
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
 
-  <script async src="../js/bootstrap.bundle.js"></script>
-  <script async src="../js/studioList.js"></script>
+  <script src="../js/studioList.js" async ></script>
+  <script src="../php/studioListFilter.php"></script>
+  <script src="../js/bootstrap.bundle.js" async></script>
 </head>
 <body>
   <div class="container-fluid vh-100"> <!-- Main container -->
@@ -39,22 +41,44 @@
     </div>
 
         <!-- filters -->
-
-        <div class="wrapper">
-            <div id = "search-container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <input type="search" placeholder="Search name" id="search-name">
-                        <button id="search">Search</button>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 id="filter"></h2>
             </div>
         </div>
-
-        <!-- Cards to display the studios - toDo filters above-->
-
-        <div class="row p-5" id = "cards">
+        <div class="wrapper">
+          <div id = "search-container">
+            <div class="row">
+              <div class="col-md-3">
+                <input type="search" placeholder="Search name" id="search-name">
+                <button id="search">Search</button>
+              </div>
+            </div>
+          </div>
         </div>
+          <!-- Cards to display the studios - Combination of JavaScript & PHP to get the data from the db and pass them to a JS function -->
+          <script>
+          document.getElementById("search").addEventListener("click", function() {
+            <?php
+            foreach(getStudios() as $rows) { ?> 
+              getCards(
+                "<?php echo $rows['Studio_name']; ?>", 
+                "<?php echo $rows['Street']; ?>",
+                <?php echo $rows['street_no']; ?>,
+                <?php echo $rows['Postal_code']; ?>,
+                "<?php echo $rows['Price']; ?>€",
+                "<?php echo $rows['Type']; ?>"
+              );
+            <?php } ?>
+          });
+          </script>
+          
+          <div class="row p-5" id = "cards">
+          </div>
+          <div class="row" id="test">
+              
+        </div>
+
 
     <!-- Footer -->
     <div class="row pt-5 mt-5 footer">
