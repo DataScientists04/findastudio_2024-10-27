@@ -1,4 +1,4 @@
-<?php include '../php/studioListFilter.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -40,45 +40,89 @@
       </div>
     </div>
 
-        <!-- filters -->
+    <div>
+        <input type="text" id="search-name" placeholder="Studio Name">
+        <input type="number" id="search-price" placeholder="Max Price">
+        <select id="search-type">
+            <option value="">All Types</option>
+            <option value="Recording">Recording</option>
+            <option value="Rehearsal">Rehearsal</option>
+        </select>
+        <button id="search">Search</button>
+      </div>
+      
         <div class="row">
             <div class="col-12 text-center">
                 <h2 id="filter"></h2>
             </div>
         </div>
-        <div class="wrapper">
-          <div id = "search-container">
-            <div class="row">
-              <div class="col-md-3">
-                <input type="search" placeholder="Search name" id="search-name">
-                <button id="search">Search</button>
-              </div>
-            </div>
-          </div>
-        </div>
-          <!-- Cards to display the studios - Combination of JavaScript & PHP to get the data from the db and pass them to a JS function -->
+        
+          <div id="cards" class="row p-5"></div>
+          <!-- Cards to display the studios - Data obtained by objects with those IDs, parsed through the JS URLSearchParams into a php script/function getStudios -->
           <script>
-          document.getElementById("search").addEventListener("click", function() {
-            <?php
-            foreach(getStudios() as $rows) { ?> 
-              getCards(
-                "<?php echo $rows['Studio_name']; ?>", 
-                "<?php echo $rows['Street']; ?>",
-                <?php echo $rows['street_no']; ?>,
-                <?php echo $rows['Postal_code']; ?>,
-                "<?php echo $rows['Price']; ?>€",
-                "<?php echo $rows['Type']; ?>"
-              );
-            <?php } ?>
+            document.getElementById("search").addEventListener("click", async function () {
+            
+              const searchButton = document.getElementById("search"); // possibly not needed
+              const name = document.getElementById("search-name").value;
+              const price = document.getElementById("search-price").value;
+              const type = document.getElementById("search-type").value;
+
+              if (!searchButton) {
+                  console.error("Search button not found in the DOM.");
+                  return;
+              }
+              console.log("Searching with filters:", { name, price, type });
+
+              // Create query parameters for the API request
+              const queryParams = new URLSearchParams({
+                  name: name,
+                  price: price,
+                  type: type
+              });
+
+              try {
+                // Make the API request
+                const response = await fetch(`../php/getStudios.php?${queryParams}`);
+                // console.log("API Request made to:", `../php/getStudios.php?${queryParams}`);
+
+                if (!response.ok) {
+                    console.error("Failed to fetch data. Status:", response.status);
+                    return;
+                }
+                const studios = await response.json();
+            console.log("Data received:", studios);
+
+            // Validate response data
+            if (!Array.isArray(studios)) {
+                console.error("Invalid response format:", studios);
+                return;
+            }
+
+            // Get the container for results
+            const resultsContainer = document.getElementById("cards");
+            if (!resultsContainer) {
+                console.error("Results container not found in the DOM.");
+                return;
+            }
+            resultsContainer.innerHTML = "";
+            
+                  // Loop through the studios and create cards
+                  studios.forEach(studio => {
+                      getCards(
+                          studio.Studio_name,
+                          studio.Street,
+                          studio.street_no,
+                          studio.Postal_code,
+                          `${studio.Price}€`,
+                          studio.Type
+                      );
+                  });
+              } catch (error) {
+                  console.error("Error fetching studios:", error);
+              }
           });
           </script>
-          
-          <div class="row p-5" id = "cards">
-          </div>
-          <div class="row" id="test">
-              
-        </div>
-
+         
 
     <!-- Footer -->
     <div class="row pt-5 mt-5 footer">
