@@ -33,7 +33,7 @@
         </nav>
       </div>
       <div class="col-6 text-center align-self-center">
-        <a class="nav-link d-inline-block " href="index.html" title="Home"><h1>Find A Studio</h1></a>
+        <a class="nav-link d-inline-block " href="/FindAStudio" title="Home"><h1>Find A Studio</h1></a>
       </div>
       <div class="col-3 text-end align-self-center">
         <a class="nav-link d-inline-block"><h1 class="bi-person px-4"></h1></a>
