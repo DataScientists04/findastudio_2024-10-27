@@ -65,25 +65,28 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row"></th>
-              <td>Studio A</td>
-              <td>1010</td>
-              <td>Today, 10:00</td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td>Studio B</td>
-              <td>1020</td>
-              <td>Tomorrow, 14:00</td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td>Studio C</td>
-              <td>1030</td>
-              <td>Today, 09:00</td>
-            </tr>
-             <!-- Additional studios, initially hidden -->
+            <?php
+            include_once "php/ConnectDB.php";
+
+            $query = "SELECT * FROM studio LIMIT 5";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<th scope='row'>" . $row['ID'] . "</th>";
+                    echo "<td>" . $row['Studio_name'] . "</td>";
+                    echo "<td>" . $row['Postal_code'] . "</td>";
+                    echo "<td> Tomorrow, 10:00 </td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>No data found</td></tr>";
+            }
+
+            mysqli_close($conn);
+            ?>
+            <!-- Additional studios, initially hidden
             <tr class="more-studios" style="display: none;">
               <th scope="row"></th>
               <td>Studio D</td>
@@ -96,7 +99,7 @@
               <td>1040</td>
               <td>Tomorrow, 15:00</td>
             </tr>
-          </tbody>
+          </tbody> -->
         </table>
       </div>
       <div class="col-md-3">
@@ -105,13 +108,12 @@
     <div class="row">
       <div class="col-md-3">
       </div>
-      <div class="col-md-6 text-center">   
-        <!-- See more studios button -->
+      <div class="col-md-6 text-center">
+        <!-- See more studios button
         <div class="text-center">
           <button id="seeMoreStudios" class="btn btn-primary">See more studios</button>
-        </div>
-        <!-- See all studios button, hidden initially -->
-        <div id="seeAllStudios" class="text-center mt-3" style="display: none;">
+        </div> -->
+        <div id="seeAllStudios" class="text-center mt-3"> <!-- style="display: none;"> -->
           <a class="btn btn-primary" href="pages/studiolist.php" title="See all Studios">See all studios</a>
         </div>
       </div>
