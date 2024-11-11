@@ -1,4 +1,7 @@
-INSERT INTO user values (UserID, "test", "user", "mail@test.com", "+435621", "pwrd");
+INSERT INTO user (First_Name,	Last_Name,	Email,	Phone_number,	User_Password) values
+('Sepp', 'Gruber', 'sepp.g@email.com', '+43 1234 56789', 'password1'),
+('Hansi', 'Reiter', 'hansi.r@email.com', '+43 2234 56789', 'password1'),
+('Franz', 'Hauser', 'franz.h@email.com', '+43 3234 56789', 'password1');
 
 INSERT INTO studio (StudioID, Studio_name, City, Postal_Code, Street, Street_no, Type, Price) VALUES
 (1, 'SoundLab Vienna', 'Wien', '1010', 'Singerstraße', '10', 'Rehearsal', 25.00),

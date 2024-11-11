@@ -23,13 +23,11 @@ CREATE TABLE find_a_studio.studio (
      PRIMARY KEY (UserID));
      
 CREATE TABLE find_a_studio.reservation (
-    ReservationID varchar(12),
+    ReservationID int Not Null AUTO_INCREMENT,
     Reservation_Date date,
     UserID int,
     StudioID int,
     
     PRIMARY KEY(ReservationID),
-    FOREIGN KEY(UserID) REFERENCES USER(userID),
+    FOREIGN KEY(UserID) REFERENCES USER(UserID),
     FOREIGN KEY(StudioID) REFERENCES STUDIO(StudioID));
-    
-    
