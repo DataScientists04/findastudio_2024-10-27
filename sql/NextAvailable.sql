@@ -1,10 +1,9 @@
-WITH dates AS (
-    SELECT CURDATE() + INTERVAL seq DAY AS date
-    FROM (
-        SELECT 0 AS seq UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6
-        UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10
-        -- Continue this pattern to generate more dates if necessary
-    ) AS seq
+WITH RECURSIVE dates AS (
+    SELECT CURDATE() AS date
+    UNION ALL
+    SELECT date + INTERVAL 1 DAY
+    FROM dates
+    WHERE date < CURDATE() + INTERVAL 14 DAY -- Adjust this value to get the next 7, 10, 15, etc. days
 ),
 next_available AS (
     SELECT s.StudioID, s.Studio_name, s.Postal_code, d.date
