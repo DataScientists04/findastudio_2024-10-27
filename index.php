@@ -69,28 +69,36 @@
             </tr>
           </thead>
           <tbody>
-            <?php
-            include_once "php/ConnectDB.php";
+          <?php
+          include_once "php/ConnectDB.php";
 
-            $sql_file = "sql/NextAvailable.sql";
-            $query = file_get_contents($sql_file);
-            $result = mysqli_query($conn, $query);
+          $sql_file = "sql/NextAvailable.sql";
+          $query = file_get_contents($sql_file);
+          $result = mysqli_query($conn, $query);
 
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<th scope='row'>" . $row['ID'] . "</th>";
-                    echo "<td>" . $row['Studio_name'] . "</td>";
-                    echo "<td>" . $row['Postal_code'] . "</td>";
-                    echo "<td>" . $row['Next_Available_Date'] . "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='3'>No data found</td></tr>";
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              $Next_Available_Date = $row['Next_Available_Date'];
+              if ($Next_Available_Date == date('Y-m-d')) {
+                $Next_Available_Date = 'Today';
+              }
+              elseif ($Next_Available_Date == date('Y-m-d', strtotime('+1 day'))) {
+                $Next_Available_Date = 'Tomorrow';
+              }
+              echo "<tr>";
+              echo "<th scope='row'>" . $row['ID'] . "</th>"; # dots combine strings
+              echo "<td>" . $row['Studio_name'] . "</td>";
+              echo "<td>" . $row['Postal_code'] . "</td>";
+              echo "<td>" . $Next_Available_Date . "</td>";
+              echo "</tr>";
             }
+          }
+          else {
+            echo "<tr><td colspan='3'>No data found</td></tr>";
+          }
 
-            mysqli_close($conn);
-            ?>
+          mysqli_close($conn);
+          ?>
             <!-- Additional studios, initially hidden
             <tr class="more-studios" style="display: none;">
               <th scope="row"></th>
