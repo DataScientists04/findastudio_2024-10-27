@@ -72,7 +72,8 @@
             <?php
             include_once "php/ConnectDB.php";
 
-            $query = "SELECT * FROM studio LIMIT 5";
+            $sql_file = "sql/NextAvailable.sql";
+            $query = file_get_contents($sql_file);
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result) > 0) {
