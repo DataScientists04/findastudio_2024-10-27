@@ -1,9 +1,9 @@
-INSERT INTO user (First_Name,	Last_Name,	Email,	Phone_number,	User_Password) values
+INSERT INTO user (First_Name,	Last_Name,	Email,	Phone_number,	User_Password) VALUES
 ('Sepp', 'Gruber', 'sepp.g@email.com', '+43 1234 56789', 'password1'),
 ('Hansi', 'Reiter', 'hansi.r@email.com', '+43 2234 56789', 'password1'),
 ('Franz', 'Hauser', 'franz.h@email.com', '+43 3234 56789', 'password1');
 
-INSERT INTO studio (StudioID, Studio_name, City, Postal_Code, Street, Street_no, Type, Price) VALUES
+INSERT INTO studio (StudioID, Studio_name, City, Postal_code, Street, Street_no, Type, Price) VALUES
 (1, 'SoundLab Vienna', 'Wien', '1010', 'Singerstraße', '10', 'Rehearsal', 25.00),
 (2, 'Vienna Beat', 'Wien', '1020', 'Praterstraße', '15', 'Rehearsal', 30.00),
 (3, 'Rockhouse Vienna', 'Wien', '1030', 'Rennweg', '35', 'Recording', 45.00),
@@ -19,3 +19,11 @@ INSERT INTO studio (StudioID, Studio_name, City, Postal_Code, Street, Street_no,
 (13, 'Music Hive', 'Wien', '1130', 'Hietzinger Hauptstraße', '22', 'Recording', 60.00),
 (14, 'EchoPoint', 'Wien', '1140', 'Linzer Straße', '10', 'Rehearsal', 29.00),
 (15, 'Studio Vienna West', 'Wien', '1150', 'Wiener Straße', '3', 'Recording', 48.00);
+
+INSERT INTO reservation (ReservationID, Reservation_Date, UserID, StudioID) VALUES
+(NULL, '2024-11-11', '3', '4'),
+(NULL, '2024-11-12', '3', '4'),
+(NULL, '2024-11-13', '3', '4'),
+(NULL, '2024-11-14', '3', '4'),
+(NULL, '2024-11-15', '3', '4'),
+(NULL, '2024-11-16', '3', '4');

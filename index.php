@@ -81,7 +81,7 @@
                     echo "<th scope='row'>" . $row['ID'] . "</th>";
                     echo "<td>" . $row['Studio_name'] . "</td>";
                     echo "<td>" . $row['Postal_code'] . "</td>";
-                    echo "<td> Tomorrow, 10:00 </td>";
+                    echo "<td>" . $row['Next_Available_Date'] . "</td>";
                     echo "</tr>";
                 }
             } else {
