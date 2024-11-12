@@ -173,8 +173,8 @@
 <script src="js/seeMore.js"></script>
 <script>
 $(function(){
-  $("#navbar").load("html/navbar.html");
-  $("#footer").load("html/footer.html");
+  $("#navbar").load("/FindAStudio/html/navbar.html");
+  $("#footer").load("/FindAStudio/html/footer.html");
 });
 </script>
 

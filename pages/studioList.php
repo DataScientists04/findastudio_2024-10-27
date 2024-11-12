@@ -105,15 +105,15 @@
   </div> <!-- Main container end -->
 
   <!-- js -->
-  <script src="../js/bootstrap.bundle.js"></script>
-  <script src="../js/studioList.js" async ></script>
-  <script src="../php/studioListFilter.php"></script>
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/seeMore.js"></script>
+  <script src="/FindAStudio/js/bootstrap.bundle.js"></script>
+  <script src="/FindAStudio/js/jquery.min.js"></script>
+  <script src="/FindAStudio/js/seeMore.js"></script>
+  <script src="/FindAStudio/js/studioList.js" async ></script>
+  <script src="/FindAStudio/php/studioListFilter.php"></script>
   <script>
   $(function(){
-    $("#navbar").load("../html/navbar1.html");
-    $("#footer").load("../html/footer1.html");
+    $("#navbar").load("/FindAStudio/html/navbar.html");
+    $("#footer").load("/FindAStudio/html/footer.html");
   });
   </script>
 
