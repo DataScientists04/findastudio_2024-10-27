@@ -4,7 +4,6 @@
   	$uname = $_POST['username'];
   	$pass = $_POST['password'];
 
-
   	$sql = "SELECT * FROM user WHERE Email='$uname' and User_Password = '$pass'";
   	$result = mysqli_query($conn, $sql);
 
@@ -15,7 +14,8 @@
   			$_SESSION['UserID'] = $row['UserID'];
   			$_SESSION['First_Name'] = $row['First_Name'];
   			$_SESSION['username'] = $row['Email'];
-  		}
+				$_SESSION['logged_in'] = "Successfully logged in as " . $row['Email'];
+			}
   	}
     else { $_SESSION['error'] = "Invalid username or password";
       header("Location: " . $_SERVER['HTTP_REFERER']);
