@@ -28,7 +28,16 @@ session_start();
     <div class="alert alert-danger" role="alert">
         <?php
         echo $_SESSION['error'];
-        unset($_SESSION['error']); // Clear the error message after displaying it
+        unset($_SESSION['error']);
+        ?>
+    </div>
+    <?php endif; ?>
+    <!-- if Logged Out Message -->
+    <?php if(isset($_SESSION['logged_out'])): ?>
+    <div class="alert alert-info" role="alert">
+        <?php
+        echo $_SESSION['logged_out'];
+        unset($_SESSION['logged_out']);
         ?>
     </div>
     <?php endif; ?>
