@@ -112,8 +112,8 @@
   <script src="/FindAStudio/php/studioListFilter.php"></script>
   <script>
   $(function(){
-    $("#navbar").load("/FindAStudio/html/navbar.html");
-    $("#footer").load("/FindAStudio/html/footer.html");
+    $("#navbar").load("/FindAStudio/pages/navbar.php");
+    $("#footer").load("/FindAStudio/pages/footer.html");
   });
   </script>
 

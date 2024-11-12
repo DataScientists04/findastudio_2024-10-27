@@ -1,3 +1,9 @@
+<?php
+session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/loginUser.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -42,8 +48,6 @@
           </thead>
           <tbody>
           <?php
-          include_once "php/ConnectDB.php";
-
           $sql_file = "sql/NextAvailable.sql";
           $query = file_get_contents($sql_file);
           $result = mysqli_query($conn, $query);
@@ -168,13 +172,13 @@
   </div> <!-- Main container end -->
 
 <!-- js -->
-<script src="js/bootstrap.bundle.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/seeMore.js"></script>
+<script src="/FindAStudio/js/bootstrap.bundle.js"></script>
+<script src="/FindAStudio/js/jquery.min.js"></script>
+<script src="/FindAStudio/js/seeMore.js"></script>
 <script>
 $(function(){
-  $("#navbar").load("/FindAStudio/html/navbar.html");
-  $("#footer").load("/FindAStudio/html/footer.html");
+  $("#navbar").load("/FindAStudio/pages/navbar.php");
+  $("#footer").load("/FindAStudio/pages/footer.html");
 });
 </script>
 
