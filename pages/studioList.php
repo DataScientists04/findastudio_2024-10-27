@@ -106,6 +106,7 @@
 
   <!-- js -->
   <script src="../js/bootstrap.bundle.js"></script>
+  <script src="../js/studioList.js" async ></script>
   <script src="../php/studioListFilter.php"></script>
   <script src="../js/jquery.min.js"></script>
   <script src="../js/seeMore.js"></script>
