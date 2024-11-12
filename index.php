@@ -163,30 +163,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="row pt-5 mt-5 footer">
-      <div class="col-12 text-center">
-        <h2>FindAStudio</h2>
-      </div>
-    </div>
-    <div class="row footer">
-      <div class="col-3">
-      </div>
-      <div class="col-6 text-center border-top">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <a href="pages/Contact.html" title="Contact Information">Contact</a>
-          </li>
-          <li class="list-group-item">
-            <a href="pages/AboutUs.html" title="About Us">About Us</a>
-          </li>
-          <li class="list-group-item">
-            © 2024 FindAStudio
-          </li>
-        </ul>
-      </div>
-      <div class="col-3">
-      </div>
-    </div>
+    <div id="footer"></div>
 
   </div> <!-- Main container end -->
 
@@ -197,6 +174,7 @@
 <script>
 $(function(){
   $("#navbar").load("html/navbar.html");
+  $("#footer").load("html/footer.html");
 });
 </script>
 
