@@ -1,3 +1,8 @@
+<?php
+session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/loginUser.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
