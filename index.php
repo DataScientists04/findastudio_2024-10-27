@@ -7,42 +7,14 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/findastudio.css">
   <link rel="stylesheet" type="text/css" href="fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
-
-  <script src="js/bootstrap.bundle.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/seeMore.js"></script>
+  <!-- js is included at the bootom of the page-->
 
 </head>
 <body>
   <div class="container-fluid vh-100"> <!-- Main container -->
 
     <!-- topbar -->
-    <div class="row navbar">
-      <div class="col-3">
-        <nav class="navbar-expand-md">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-dark navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarContent">
-            <div class="navbar-nav px-3">
-              <a class="nav-item nav-link" href="#studios_anchor">Studios</a>
-              <a class="nav-item nav-link" href="#map_anchor">Map</a>
-              <a class="nav-item nav-link" href="#reviews_anchor">Reviews</a>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div class="col-6 text-center align-self-center">
-        <a class="nav-link d-inline-block " href="/FindAStudio" title="Home"><h1>Find A Studio</h1></a>
-      </div>
-      <div class="col-3 d-flex justify-content-end align-self-center">
-        <a class="nav-link d-inline-block" id="dropdown-login-button"><h1 class="bi-person px-4"></h1></a>
-          <div class="top-100 dropdown-menu dropdown-menu-dark dropdown-menu-end" style="display:none;">
-            <a class="dropdown-item" href="#">Login</a>
-            <a class="dropdown-item" href="#">Sign up</a>
-          </div>
-      </div>
-    </div>
+    <div id="navbar"></div>
 
     <!-- Image -->
     <div class="row h-50">
@@ -217,5 +189,16 @@
     </div>
 
   </div> <!-- Main container end -->
+
+<!-- js -->
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/seeMore.js"></script>
+<script>
+$(function(){
+  $("#navbar").load("html/navbar.html");
+});
+</script>
+
 </body>
 </html>
