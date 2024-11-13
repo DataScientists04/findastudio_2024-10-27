@@ -21,7 +21,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
     <div id="navbar"></div>
 
     <!-- Reservation form -->
-    <div class="row pt-5">
+    <div class="row pt-3">
       <div class="col-12 text-center"><h2>Create a new user account</h2>
       </div>
     </div>

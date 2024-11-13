@@ -70,23 +70,23 @@ session_start();
         <form name="frm_userLogin" method="post" action="/FindAStudio/php/loginUser.php">
           <?php
           if(isset($_SESSION['Email'])): ?>
-            <div class="form-row text-center py-1">
+            <div class="text-center py-1">
               <a href="/FindAStudio/php/logoutUser.php" class="btn btn-primary">Logout</a>
             </div>
           <?php else: ?>
-          <div class="form-row py-1">
+          <div class="py-1">
             <input type="text" name="Email" class="form-control w-50 mx-auto" placeholder="E-Mail">
           </div>
-          <div class="form-row py-1">
+          <div class="py-1">
             <input type="password" name="User_Password" class="form-control w-50 mx-auto"placeholder="Password">
           </div>
-          <div class="form-row text-center py-1">
+          <div class="text-center py-1">
             <button type="submit" name="submit" value="submit" class="btn btn-primary">Login</button>
           </div>
-          <div class="form-row text-center pt-3">
-            <label class="form-label border-top">Or create an account</label>
+          <div class="text-center pt-3 py-1">
+            <label class="label border-top">Or create an account</label>
           </div>
-          <div class="form-row text-center">
+          <div class="text-center p-y1">
             <a href="/FindAStudio/pages/SignUp.php" class="btn btn-primary">Sign up</a>
           </div>
           <?php endif; ?>
