@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-  <title>Reservation</title>
+  <title>Sign up</title>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
@@ -22,45 +22,37 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
     <!-- Reservation form -->
     <div class="row pt-5">
-      <div class="col-12 text-center"><h2>Reservation</h2>
+      <div class="col-12 text-center"><h2>Create a new user account</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
       </div>
       <div class="col-md-6">
-        <form id="reservationForm" action="\">
+        <form id="frm_userSignup" method="post" action="/FindAStudio/php/createUser.php">
           <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label class="form-label">Name</label>
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" id="name" name="name" placeholder="First name" required>
+                <input type="text" class="form-control" id="First_Name" name="First_Name" placeholder="First name" required>
               </div>
               <div class="col">
-                <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" required>
+                <input type="text" class="form-control" id="Last_Name" name="Last_Name" placeholder="Last Name" required>
               </div>
             </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <label for="Email" class="form-label">E-Mail</label>
+            <input type="email" class="form-control" id="Email" name="Email" required>
           </div>
           <div class="mb-3">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="tel" class="form-control" id="phone" name="phone" required>
+            <label for="Phone_number" class="form-label">Phone number</label>
+            <input type="tel" class="form-control" id="Phone_number" name="Phone_number" required>
           </div>
           <div class="mb-3">
-            <label for="studio" class="form-label">Studio</label>
-            <input type="text" class="form-control" id="studio" name="studio" required>
+            <label for="User_Password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="User_Password" name="User_Password" required>
           </div>
-          <div class="mb-3">
-            <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="date" name="date" required>
-          </div>
-          <div class="mb-3">
-            <label for="time" class="form-label">Time</label>
-            <input type="time" class="form-control" id="time" name="time" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Reserve</button>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
       </div>
       <div class="col-md-3">
@@ -69,12 +61,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
     <!-- Footer -->
     <div id="footer"></div>
-    
+
   </div> <!-- Main container end-->
 
   <!-- js -->
   <script src="/FindAStudio/js/bootstrap.bundle.js"></script>
-  <script src="/FindAStudio/js/reservation.js"></script>
   <script src="/FindAStudio/js/jquery.min.js"></script>
   <script src="/FindAStudio/js/seeMore.js"></script>
   <script>
