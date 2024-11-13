@@ -12,7 +12,7 @@ if(count($_POST)>0) {
 	$result = mysqli_query($conn, $sql);
 
 	if(mysqli_num_rows($result) === 1){
-		$_SESSION['error'] = "The E-Mail" . $Email . "is already registered";
+		$_SESSION['error'] = "The E-Mail" . $Email . " is already registered";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
 	}
