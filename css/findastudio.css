@@ -71,7 +71,7 @@ a {
   background-position: right bottom;
 }
 .btn-primary:hover {
-  color: var(--project-color5);
+  color: var(--project-color5) !important;
   border-color: var(--project-color2);
   background-position: left bottom;
 }
