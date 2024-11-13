@@ -22,8 +22,8 @@ if(count($_POST)>0) {
         $result = mysqli_query($conn, $sql);
 
         if($result){
-								include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/loginUser.php";
-								$_SESSION['logged_in'] = "Successfully created account for" . $Email;
+				include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/loginUser.php";
+				$_SESSION['logged_in'] = "Successfully created account for " . $Email;
                 $pathto = "http://localhost/FindAStudio/index.php";
                 header("Location: " . $pathto);
         }
