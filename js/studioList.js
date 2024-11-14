@@ -1,21 +1,17 @@
-
-
 function getCards(studioName, street, street_no, postalCode, price, type) {
-
-
-
+    
     var HTMLlist = document.getElementById("cards");
     if (!HTMLlist) {
         console.error("Element with ID 'cards' not found in the DOM.");
     }
-    
-    var newElement = document.createElement("div"); 
-    // to add a class: 
-    // to add an id 
-    newElement.setAttribute("class", "card lg-3 m-4 col-3"); 
-    newElement.setAttribute("id", "cardsToCreate"); 
-    newElement.setAttribute("style",  "max-width: 22rem; min-width: 16rem; max-height: 22rem; min-height: 16rem;"); 
-    
+  
+    var newElement = document.createElement("div");
+    // to add a class
+    newElement.setAttribute("class", "card lg-3 m-4 col-3");
+      // to add an id
+    newElement.setAttribute("id", "cardsToCreate");
+    newElement.setAttribute("style",  "max-width: 22rem; min-width: 16rem; max-height: 22rem; min-height: 16rem;");
+  
     newElement.innerHTML = `
         <div class="card-body">
             <div class="row">
@@ -26,8 +22,8 @@ function getCards(studioName, street, street_no, postalCode, price, type) {
                 <p class="card-text">Type: ${type}</p>
             </div>
         </div>
-    `
-    
+    `;
+  
     HTMLlist.appendChild(newElement);
-    }
-    
+  }
+  
