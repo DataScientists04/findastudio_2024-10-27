@@ -52,7 +52,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
       <!-- Cards -->
       <div class="row min-vh-100"> <!-- to have a min height before the footer-->
-        <div id="cards" class="row p-5"></div>
+        <div id="cards" class="row p-5 d-flex justify-content-center"></div>
       </div>
     </div>
     <!-- Cards to display the studios - Data obtained by objects with those IDs, parsed through the JS URLSearchParams into a php script/function getStudios -->
