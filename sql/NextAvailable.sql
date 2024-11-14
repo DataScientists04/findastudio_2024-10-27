@@ -6,7 +6,7 @@ WITH RECURSIVE dates AS (
     WHERE date < CURDATE() + INTERVAL 14 DAY -- Adjust this value to get the next 7, 10, 15, etc. days
 ),
 next_available AS (
-    SELECT s.StudioID, s.Studio_name, s.Postal_code, d.date
+    SELECT s.StudioID, s.Studio_name, s.City, s.Postal_code, s.Street, s.street_no, s.Type, s.Price, d.date
     FROM studio s
     CROSS JOIN dates d
     LEFT JOIN reservation r ON s.StudioID = r.StudioID AND r.Reservation_Date = d.date

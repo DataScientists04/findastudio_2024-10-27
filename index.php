@@ -82,7 +82,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
         <table class="table table-dark">
           <thead>
             <tr>
-              <th scope="col"></th>
               <th scope="col">Studio</th>
               <th scope="col">Location</th>
               <th scope="col">Next available time slot</th>
@@ -104,10 +103,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
                 $Next_Available_Date = 'Tomorrow';
               }
               echo "<tr>";
-              echo "<th scope='row'>" . $row['ID'] . "</th>"; # dots combine strings
-              echo "<td>" . $row['Studio_name'] . "</td>";
-              echo "<td>" . $row['Postal_code'] . "</td>";
-              echo "<td>" . $Next_Available_Date . "</td>";
+                echo "<td>" . $row['Studio_name'] . "</td>";
+                echo "<td>" . $row['Postal_code'] . "</td>";
+                echo "<td>" . $Next_Available_Date . "</td>";
               echo "</tr>";
             }
           }
