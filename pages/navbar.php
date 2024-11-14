@@ -1,11 +1,6 @@
 <?php
 session_start();
 ?>
-<script>
-if (typeof jQuery === 'undefined') { // Only load jquery if it's not already included. Leads to issues otherwise.
-  document.write('<script src="/FindAStudio/js/jquery.min.js"><\/script>'); // Extra backslash to escape end tag
-}
-</script>
 <script src="/FindAStudio/js/seeMore.js"></script>
 
 <div class="row navbar">

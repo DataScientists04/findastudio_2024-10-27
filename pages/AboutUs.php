@@ -49,11 +49,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
   <!-- js -->
   <script src="/FindAStudio/js/bootstrap.bundle.js"></script>
-  <script>
-  if (typeof jQuery === 'undefined') { // Only load jquery if it's not already included. Leads to issues otherwise.
-    document.write('<script src="/FindAStudio/js/jquery.min.js"><\/script>'); // Extra backslash to escape end tag
-  }
-  </script>
+  <script src="/FindAStudio/js/jquery.min.js"></script>
   <script src="/FindAStudio/js/seeMore.js"></script>
 
 </body>
