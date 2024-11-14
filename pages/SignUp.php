@@ -67,7 +67,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <!-- js -->
   <script src="/FindAStudio/js/bootstrap.bundle.js"></script>
   <script src="/FindAStudio/js/jquery.min.js"></script>
-  <script src="/FindAStudio/js/seeMore.js"></script>
 
 </body>
 </html>

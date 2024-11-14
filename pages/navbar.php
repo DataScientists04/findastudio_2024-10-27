@@ -1,7 +1,8 @@
 <?php
 session_start();
 ?>
-<script src="/FindAStudio/js/seeMore.js"></script>
+<script src="/FindAStudio/js/jquery.min.js"></script>
+<script src="/FindAStudio/js/LoginDropdown.js"></script>
 
 <div class="row navbar">
   <div class="col-4">
