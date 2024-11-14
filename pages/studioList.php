@@ -48,69 +48,74 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
     </div>
 
     <!-- Cards -->
-    <div id="cards" class="row p-5"></div>
+    <div class="row min-vh-100"> <!-- to have a min height before the footer-->
+      <div id="cards" class="row p-5"></div>
+    </div>
     <!-- Cards to display the studios - Data obtained by objects with those IDs, parsed through the JS URLSearchParams into a php script/function getStudios -->
     <script>
-      async function fetchStudios () {
+    async function fetchStudios () {
 
-        const searchButton = document.getElementById("search"); // possibly not needed
-        const name = document.getElementById("search-name").value;
-        const price = document.getElementById("search-price").value;
-        const type = document.getElementById("search-type").value;
+      const searchButton = document.getElementById("search"); // possibly not needed
+      const name = document.getElementById("search-name").value;
+      const price = document.getElementById("search-price").value;
+      const type = document.getElementById("search-type").value;
 
-        if (!searchButton) {
-            console.error("Search button not found in the DOM.");
+      if (!searchButton) {
+        console.error("Search button not found in the DOM.");
+        return;
+      }
+      console.log("Searching with filters:", { name, price, type });
+
+      // Create query parameters for the API request
+      const queryParams = new URLSearchParams({
+          name: name,
+          price: price,
+          type: type
+      });
+
+      try {
+        document.getElementById('cards').style.display = 'none'; // For fade-in effect (further down)
+        // Make the API request
+        const response = await fetch(`../php/getStudios.php?${queryParams}`);
+        // console.log("API Request made to:", `../php/getStudios.php?${queryParams}`);
+
+        if (!response.ok) {
+            console.error("Failed to fetch data. Status:", response.status);
             return;
         }
-        console.log("Searching with filters:", { name, price, type });
+        const studios = await response.json();
+        console.log("Data received:", studios);
 
-        // Create query parameters for the API request
-        const queryParams = new URLSearchParams({
-            name: name,
-            price: price,
-            type: type
-        });
+        // Validate response data
+        if (!Array.isArray(studios)) {
+            console.error("Invalid response format:", studios);
+            return;
+        }
 
-        try {
-          // Make the API request
-          const response = await fetch(`../php/getStudios.php?${queryParams}`);
-          // console.log("API Request made to:", `../php/getStudios.php?${queryParams}`);
-
-          if (!response.ok) {
-              console.error("Failed to fetch data. Status:", response.status);
-              return;
-          }
-          const studios = await response.json();
-      console.log("Data received:", studios);
-
-      // Validate response data
-      if (!Array.isArray(studios)) {
-          console.error("Invalid response format:", studios);
-          return;
-      }
-
-      // Get the container for results
-      const resultsContainer = document.getElementById("cards");
-      if (!resultsContainer) {
+        // Get the container for results
+        const resultsContainer = document.getElementById("cards");
+        if (!resultsContainer) {
           console.error("Results container not found in the DOM.");
           return;
-      }
-      resultsContainer.innerHTML = "";
-
-            // Loop through the studios and create cards
-            studios.forEach(studio => {
-                getCards(
-                    studio.Studio_name,
-                    studio.Street,
-                    studio.street_no,
-                    studio.Postal_code,
-                    `${studio.Price}€`,
-                    studio.Type
-                );
-            });
-        } catch (error) {
-            console.error("Error fetching studios:", error);
         }
+        resultsContainer.innerHTML = "";
+
+        // Loop through the studios and create cards
+        studios.forEach(studio => {
+          getCards(
+            studio.Studio_name,
+            studio.Street,
+            studio.street_no,
+            studio.Postal_code,
+            `${studio.Price}€`,
+            studio.Type
+          );
+        });
+        $(cards).fadeIn(500);
+      }
+      catch (error) {
+        console.error("Error fetching studios:", error);
+      }
     };
     document.getElementById("search").addEventListener("click", fetchStudios); // Trigger fetchStudios on button press
     window.addEventListener('DOMContentLoaded', fetchStudios); // Trigger fetchStudios on page load
@@ -127,7 +132,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <script src="/FindAStudio/js/jquery.min.js"></script>
   <script src="/FindAStudio/js/seeMore.js"></script>
   <script src="/FindAStudio/js/studioList.js" async ></script>
-  <script src="/FindAStudio/php/studioListFilter.php"></script> <!-- ? Is this in use -->
   <script>
   $(function(){
     $("#navbar").load("/FindAStudio/pages/navbar.php");
