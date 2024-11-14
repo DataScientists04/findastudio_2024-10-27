@@ -13,6 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
   <script src="/FindAStudio/js/StudioDetailView.js" async></script>
+  <script src="/FindAStudio/js/Reset_AllStudiosView.js" async></script>
 </head>
 <body>
   <div class="container-fluid vh-100"> <!-- Main container -->
@@ -116,7 +117,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
             studio.Type
           );
         });
-        $(cards).fadeIn(500);
+        $("#cards").fadeIn(500); //$("#x") syntax is part of jQuery
       }
       catch (error) {
         console.error("Error fetching studios:", error);

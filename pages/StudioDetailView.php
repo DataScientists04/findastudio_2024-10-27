@@ -49,7 +49,7 @@ if (isset($_GET['StudioID'])) {
   </div>
   <div class="col-md-6 text-center">
     <div id="seeAllStudios" class="text-center mt-3">
-      <a class="btn btn-primary" href="/FindAStudio/pages/studioList.php" title="See all Studios">See all studios</a>
+      <button class="btn btn-primary" onClick="Reset_AllStudiosView()" title="Back to all studios">Back to all studios</button>
     </div>
   </div>
   <div class="col-md-3">
