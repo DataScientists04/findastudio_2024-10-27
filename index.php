@@ -24,7 +24,50 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
     <!-- Image -->
     <div class="row h-50">
       <div class="col-12 h-100">
-        <img src="img/Studio1.jpg" alt="StudioImage" class="h-100 w-100 object-fit-cover"> <!-- class "h-..." is always relative to the parents height. This class doesn't seem to be automatically transisting, therefore some "h-..." class must be applied to every parent for this to work: img -> col -> row -> "main" container-fluid -->
+        <div class="carousel slide h-100" data-bs-ride="carousel" id="image_carousel_home">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#image_carousel_home" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#image_carousel_home" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#image_carousel_home" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+              <img src="img/Studio1.jpg" alt="StudioImage" class="d-block h-100 w-100 object-fit-cover">
+              <!-- Image height: class "h-..." is always relative to the parents height.
+              This class doesn't seem to be automatically transisting, therefore some "h-..." class must be applied to every parent for this to work:
+              img -> col -> row -> "main" container-fluid -->
+              <div class="top-50 carousel-caption d-none d-md-block">
+                <h3 class="fs-1 bg-black bg-opacity-50 p-3 rounded">Discover and book the perfect music studio in Vienna</h3>
+              </div>
+            </div>
+            <div class="carousel-item h-100">
+              <img src="img/Studio2.jpg" alt="StudioImage" class="d-block h-100 w-100 object-fit-cover">
+              <!-- Image height: class "h-..." is always relative to the parents height.
+              This class doesn't seem to be automatically transisting, therefore some "h-..." class must be applied to every parent for this to work:
+              img -> col -> row -> "main" container-fluid -->
+              <div class="top-50 carousel-caption d-none d-md-block">
+                <h3 class="fs-1 bg-black bg-opacity-50 p-3 rounded">Unleash your musical potential—find the ideal studio space today</h3>
+              </div>
+            </div>
+            <div class="carousel-item h-100">
+              <img src="img/Studio3.jpg" alt="StudioImage" class="d-block h-100 w-100 object-fit-cover">
+              <!-- Image height: class "h-..." is always relative to the parents height.
+              This class doesn't seem to be automatically transisting, therefore some "h-..." class must be applied to every parent for this to work:
+              img -> col -> row -> "main" container-fluid -->
+              <div class="top-50 carousel-caption d-none d-md-block">
+                <h3 class="fs-1 bg-black bg-opacity-50 p-3 rounded">Book top studios effortlessly</h3>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#image_carousel_home" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#image_carousel_home" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
     </div>
 

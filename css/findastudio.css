@@ -43,6 +43,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.carousel-caption h3 {
+  color: var(--project-color1) !important;
+}
 
 .navbar {
   background-color: var(--project-bg-color);
