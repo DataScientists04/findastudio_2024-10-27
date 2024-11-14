@@ -17,7 +17,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <div class="container-fluid vh-100"> <!-- Main container -->
 
     <!-- topbar -->
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/pages/navbar.php"; ?>
+    <div id="navbar"></div>
 
     <div class="row py-3">
       <div class="col-12 text-center"><h2>Overview of our studios</h2>
@@ -132,6 +132,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <script src="/FindAStudio/js/jquery.min.js"></script>
   <script src="/FindAStudio/js/seeMore.js"></script>
   <script src="/FindAStudio/js/studioList.js" async ></script>
+  <script>
+  $(function(){
+    $("#navbar").load("/FindAStudio/pages/navbar.php");
+  });
+  </script>
 
 </body>
 </html>
