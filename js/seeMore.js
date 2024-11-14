@@ -8,10 +8,4 @@ $(document).ready(function(){
       
       // Show the 'See all studios' link
       $('#seeAllStudios').show();
-    });
-  
-  //login dropdown menu 
-  $('#dropdown-login-button').click(function(){
-    $('.dropdown-menu').slideToggle();
-    });
-  });
+});
