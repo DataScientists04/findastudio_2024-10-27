@@ -18,7 +18,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <div class="container-fluid vh-100"> <!-- Main container -->
 
     <!-- topbar -->
-    <div id="navbar"></div>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/pages/navbar.php"; ?>
 
     <div class="row">
       <div class="col-md-3">
@@ -43,7 +43,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
     </div>
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/pages/footer.html"; ?>
     
   </div> <!-- Main container end-->
 
@@ -51,12 +51,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <script src="/FindAStudio/js/bootstrap.bundle.js"></script>
   <script src="/FindAStudio/js/jquery.min.js"></script>
   <script src="/FindAStudio/js/seeMore.js"></script>
-  <script>
-  $(function(){
-    $("#navbar").load("/FindAStudio/pages/navbar.php");
-    $("#footer").load("/FindAStudio/pages/footer.html");
-  });
-  </script>
 
 </body>
 </html>
