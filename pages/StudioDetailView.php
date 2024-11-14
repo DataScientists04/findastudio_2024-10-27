@@ -40,9 +40,6 @@ if (isset($_GET['StudioID'])) {
   echo "No StudioID provided";
 }
 ?>
-    <script>
-    document.getElementById("StudioHeading").innerHTML = "1";
-    </script>
   </div>
   <div class="col-md-2">
   </div>
@@ -51,7 +48,7 @@ if (isset($_GET['StudioID'])) {
   <div class="col-md-3">
   </div>
   <div class="col-md-6 text-center">
-    <div id="seeAllStudios" class="text-center mt-3"> <!-- style="display: none;"> -->
+    <div id="seeAllStudios" class="text-center mt-3">
       <a class="btn btn-primary" href="/FindAStudio/pages/studioList.php" title="See all Studios">See all studios</a>
     </div>
   </div>

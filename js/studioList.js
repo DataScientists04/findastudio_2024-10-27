@@ -9,7 +9,7 @@ function getCards(StudioID, studioName, street, street_no, postalCode, price, ty
     newElement.setAttribute("style", "max-width: 22rem; min-width: 16rem; max-height: 22rem; min-height: 16rem; cursor: pointer;");
     newElement.setAttribute("id", StudioID);
     newElement.onclick = function() {
-      loadXMLDoc(StudioID);
+      loadStudioDetailView(StudioID);
     };
   
     newElement.innerHTML = `

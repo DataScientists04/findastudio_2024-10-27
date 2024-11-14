@@ -12,7 +12,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
-  <script src="/FindAStudio/js/StudioDetailView_ajax.js" async></script>
+  <script src="/FindAStudio/js/StudioDetailView.js" async></script>
 </head>
 <body>
   <div class="container-fluid vh-100"> <!-- Main container -->
