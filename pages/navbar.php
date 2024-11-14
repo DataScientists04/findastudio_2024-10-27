@@ -75,10 +75,10 @@ session_start();
             </div>
           <?php else: ?>
           <div class="py-1">
-            <input type="text" name="Email" class="form-control w-50 mx-auto" placeholder="E-Mail">
+            <input type="text" name="Email" class="form-control w-75 mx-auto" placeholder="E-Mail">
           </div>
           <div class="py-1">
-            <input type="password" name="User_Password" class="form-control w-50 mx-auto"placeholder="Password">
+            <input type="password" name="User_Password" class="form-control w-75 mx-auto"placeholder="Password">
           </div>
           <div class="text-center py-1">
             <button type="submit" name="submit" value="submit" class="btn btn-primary">Login</button>
