@@ -17,7 +17,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <div class="container-fluid vh-100"> <!-- Main container -->
 
     <!-- topbar -->
-    <div id="navbar"></div>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/pages/navbar.php"; ?>
 
     <div class="row py-3">
       <div class="col-12 text-center"><h2>Overview of our studios</h2>
@@ -129,14 +129,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
   <!-- js -->
   <script src="/FindAStudio/js/bootstrap.bundle.js"></script>
-  <script src="/FindAStudio/js/jquery.min.js"></script>
+  <script>
+  if (typeof jQuery === 'undefined') { // Only load jquery if it's not already included. Leads to issues otherwise.
+    document.write('<script src="/FindAStudio/js/jquery.min.js"><\/script>'); // Extra backslash to escape end tag
+  }
+  </script>
   <script src="/FindAStudio/js/seeMore.js"></script>
   <script src="/FindAStudio/js/studioList.js" async ></script>
-  <script>
-  $(function(){
-    $("#navbar").load("/FindAStudio/pages/navbar.php");
-  });
-  </script>
 
 </body>
 </html>
