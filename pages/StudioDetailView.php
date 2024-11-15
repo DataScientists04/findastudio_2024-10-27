@@ -62,16 +62,66 @@ if (isset($_GET['StudioID'])) {
               <?php echo "<h4>" . "Price: " . "</h4>"; ?>
             </div>
             <div class="col-6">
-              <?php echo "<h4>" . $Price . "</h4>"; ?>
+              <?php echo "<h4>" . $Price . "€" . "</h4>"; ?>
             </div>
           </div>
 
           <div class="row pt-3">
-            <div class="col-6">
+            <div class="col-3">
               <button id="BookStudio_btn" class="btn btn-primary" style="aspect-ratio: 2 / 1; width: 25%%;" onclick="redirectReservation(<?php echo $StudioID; ?>)">
                 Book this studio</button>
             </div>
-            <div class="col-6">
+            <div class="col-9">
+              <!-- Calendar-->
+              <?php
+              $specific_studio_id = $StudioID; // Set the specific StudioID
+              // Fetch the next 7 dates and their reservation statuses
+              $query = "
+                  WITH RECURSIVE dates AS (
+                      SELECT CURDATE() AS date
+                      UNION ALL
+                      SELECT date + INTERVAL 1 DAY
+                      FROM dates
+                      WHERE date < CURDATE() + INTERVAL 6 DAY
+                  )
+                  SELECT d.date, IF(r.Reservation_Date IS NOT NULL, 'Reserved', 'Available') AS status
+                  FROM dates d
+                  LEFT JOIN reservation r ON r.StudioID = ? AND r.Reservation_Date = d.date
+                  ORDER BY d.date
+              ";
+
+              $stmt = $conn->prepare($query);
+              $stmt->bind_param("i", $specific_studio_id);
+              $stmt->execute();
+              $result = $stmt->get_result();
+
+              // Prepare data for the calendar
+              $dates = [];
+              $statuses = [];
+              while ($row = $result->fetch_assoc()) {
+                  $dates[] = $row['date'];
+                  $statuses[] = $row['status'];
+              }
+              ?>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <?php foreach ($dates as $date) : ?>
+                                <th><?php echo $date; ?></th>
+                            <?php endforeach; ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php foreach ($statuses as $status) : ?>
+                                <td><?php echo $status; ?></td>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+
             </div>
           </div>
       </div>

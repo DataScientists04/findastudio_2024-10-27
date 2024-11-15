@@ -37,7 +37,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
         </div>
         <div class="col-sm w-50 py-1">
           <label for="search-name" class="form-label">Max. Price</label>
-          <input type="number" class="form-control" id="search-price" placeholder="$">
+          <input type="number" class="form-control" id="search-price" placeholder="€">
         </div>
         <div class="col-sm w-50 py-1">
           <label for="search-name" class="form-label">Studio type</label>

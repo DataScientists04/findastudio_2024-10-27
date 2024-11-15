@@ -90,9 +90,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
           <tbody>
           <?php
           $sql_file = "sql/NextAvailable.sql";
+
+          $specific_studio_id = "%";
+          $set_specific_studio_id = "SET @specific_studio_id = '$specific_studio_id'";
+          if (mysqli_query($conn, $set_specific_studio_id) === FALSE) {
+            die("Error setting @specific_studio_id: " . mysqli_error($conn));
+          }
+          $number_of_days = "14";
+          $set_number_of_days = "SET @number_of_days = $number_of_days";
+          if (mysqli_query($conn, $set_number_of_days) === FALSE) {
+            die("Error setting @number_of_days: " . mysqli_error($conn));
+          }
           $query = file_get_contents($sql_file);
           $result = mysqli_query($conn, $query);
-
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
               $Next_Available_Date = $row['Next_Available_Date'];
@@ -115,20 +125,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
           mysqli_close($conn);
           ?>
-            <!-- Additional studios, initially hidden
-            <tr class="more-studios" style="display: none;">
-              <th scope="row"></th>
-              <td>Studio D</td>
-              <td>1180</td>
-              <td>Today, 11:00</td>
-            </tr>
-            <tr class="more-studios" style="display: none;">
-              <th scope="row"></th>
-              <td>Studio E</td>
-              <td>1040</td>
-              <td>Tomorrow, 15:00</td>
-            </tr>
-          </tbody> -->
         </table>
       </div>
       <div class="col-md-3">
@@ -138,11 +134,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
       <div class="col-md-3">
       </div>
       <div class="col-md-6 text-center">
-        <!-- See more studios button
-        <div class="text-center">
-          <button id="seeMoreStudios" class="btn btn-primary">See more studios</button>
-        </div> -->
-        <div id="seeAllStudios" class="text-center mt-3"> <!-- style="display: none;"> -->
+        <div id="seeAllStudios" class="text-center mt-3">
           <a class="btn btn-primary" href="pages/studiolist.php" title="See all Studios">See all studios</a>
         </div>
       </div>
