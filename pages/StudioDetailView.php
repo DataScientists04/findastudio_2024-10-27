@@ -68,7 +68,8 @@ if (isset($_GET['StudioID'])) {
 
           <div class="row pt-3">
             <div class="col-6">
-              <button id="BookStudio_btn" class="btn btn-primary" style="aspect-ratio: 2 / 1; width: 25%%;">Book this studio</button>
+              <button id="BookStudio_btn" class="btn btn-primary" style="aspect-ratio: 2 / 1; width: 25%%;" onclick="redirectReservation(<?php echo $StudioID; ?>)">
+                Book this studio</button>
             </div>
             <div class="col-6">
             </div>
@@ -101,3 +102,5 @@ if (isset($_GET['StudioID'])) {
   <div class="col-md-3">
   </div>
 </div>
+
+<script src="/FindAStudio/js/redirectReservation.js"></script>
