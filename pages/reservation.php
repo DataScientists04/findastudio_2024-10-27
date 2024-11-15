@@ -92,7 +92,6 @@ if (isset($_SESSION['UserID'])) {
       </div>
       <div class="col-md-6">
         <form id="reservationForm" action="/FindAStudio/php/submitReservation.php" method="POST">
-          <input type="hidden" name="StudioID" value="<?php echo $StudioID; ?>">
           <input type="hidden" name="UserID" value="<?php echo $UserID; ?>">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -191,7 +190,7 @@ if (isset($_SESSION['UserID'])) {
   <!-- js -->
   <script src="/FindAStudio/js/bootstrap.bundle.js"></script>
   <script src="/FindAStudio/js/jquery.min.js"></script>
-  <script src="/FindAStudio/js/reservation.js"></script>
+  <script src="/FindAStudio/js/reservationValidation.js"></script>
   <script src="/FindAStudio/js/seeMore.js"></script>
 
 </body>
