@@ -11,8 +11,21 @@ if (isset($_GET['StudioID'])) {
   if ($studioResult && mysqli_num_rows($studioResult) > 0) {
     $studio = mysqli_fetch_assoc($studioResult);
 
-    $nextAvailableQuery = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/sql/NextAvailable.sql");
-    $nextAvailableQuery = str_replace(":StudioID", $StudioID, $nextAvailableQuery);
+    $sql_file = $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/sql/NextAvailable.sql";
+
+    $specific_studio_id = $StudioID;
+    $set_specific_studio_id = "SET @specific_studio_id = '$specific_studio_id'";
+    if (mysqli_query($conn, $set_specific_studio_id) === FALSE) {
+      die("Error setting @specific_studio_id: " . mysqli_error($conn));
+    }
+    $number_of_days = "14";
+    $set_number_of_days = "SET @number_of_days = $number_of_days";
+    if (mysqli_query($conn, $set_number_of_days) === FALSE) {
+      die("Error setting @number_of_days: " . mysqli_error($conn));
+    }
+    $nextAvailableQuery = file_get_contents($sql_file);
+    $result = mysqli_query($conn, $nextAvailableQuery);
+    
     $dateResult = mysqli_query($conn, $nextAvailableQuery);
     $nextAvailableDate = mysqli_fetch_assoc($dateResult)['Next_Available_Date'];
 
@@ -40,7 +53,7 @@ if (isset($_SESSION['UserID'])) {
     $name = $user['First_Name'];
     $surname = $user['Last_Name'];
     $email = $user['Email'];
-    $phone = $user['Phone'];
+    $phone = $user['Phone_number'];
 
   } else {
     echo "User not found.";
@@ -114,12 +127,8 @@ mysqli_close($conn);
             <input type="date" class="form-control" id="date" name="date" value="<?php echo $nextAvailableDate; ?>" required>
           </div>
           <div class="mb-3">
-            <label for="time" class="form-label">Time</label>
-            <input type="time" class="form-control" id="time" name="time" required>
-          </div>
-          <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="text" class="form-control" id="price" name="price" value="<?php echo $studioPrice; ?>" readonly>
+            <input type="text" class="form-control" id="price" name="price" value="<?php echo $studioPrice . "€"; ?>" readonly>
           </div>
           <button type="submit" class="btn btn-primary">Reserve</button>
         </form>
@@ -130,7 +139,7 @@ mysqli_close($conn);
 
     <!-- Footer -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/pages/footer.html"; ?>
-    
+
   </div> <!-- Main container end-->
 
   <!-- js -->
