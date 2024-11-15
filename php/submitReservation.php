@@ -6,7 +6,7 @@ if (isset($_POST['StudioID']) && isset($_POST['UserID']) && isset($_POST['date']
   $StudioID = $_POST['StudioID'];
   $UserID = $_POST['UserID'];
   $date = $_POST['date'];
-  $query = "INSERT INTO reservation (StudioID, UserID, date) VALUES
+  $query = "INSERT INTO reservation (StudioID, UserID, Reservation_Date) VALUES
   ('$StudioID', '$UserID', '$date')";
 
   if (mysqli_query($conn, $query)) {
