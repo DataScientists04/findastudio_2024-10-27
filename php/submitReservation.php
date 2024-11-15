@@ -5,9 +5,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 if (isset($_POST['StudioID']) && isset($_POST['UserID']) && isset($_POST['date'])) {
   $StudioID = $_POST['StudioID'];
   $UserID = $_POST['UserID'];
-  $Reservation_Date = $_POST['date'];
-  $query = "INSERT INTO reservation (StudioID, UserID, Reservation_Date) VALUES
-  ('$StudioID', '$UserID', '$Reservation_Date')";
+  $date = $_POST['date'];
+  $query = "INSERT INTO reservation (StudioID, UserID, date) VALUES
+  ('$StudioID', '$UserID', '$date')";
 
   if (mysqli_query($conn, $query)) {
     echo "Reservation successful!";

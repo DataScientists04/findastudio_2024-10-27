@@ -126,7 +126,7 @@ if (isset($_SESSION['UserID'])) {
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="Reservation_Date" name="Reservation_Date" value="<?php echo $nextAvailableDate; ?>" required>
+            <input type="date" class="form-control" id="date" name="date" value="<?php echo $nextAvailableDate; ?>" required>
             <!-- Calendar-->
             <?php
             $specific_studio_id = $StudioID; // Set the specific StudioID
