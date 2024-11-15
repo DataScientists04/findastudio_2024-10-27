@@ -67,6 +67,39 @@ if (isset($_GET['StudioID'])) {
           </div>
 
           <div class="row pt-3">
+            <div class="col-6">
+              <?php echo "<h4>" . "Next available booking date: " . "</h4>"; ?>
+            </div>
+            <div class="col-6">
+              <?php
+              $sql_file = $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/sql/NextAvailable.sql";
+
+              $specific_studio_id = $StudioID;
+              $set_specific_studio_id = "SET @specific_studio_id = '$specific_studio_id'";
+              if (mysqli_query($conn, $set_specific_studio_id) === FALSE) {
+                die("Error setting @specific_studio_id: " . mysqli_error($conn));
+              }
+              $number_of_days = "14";
+              $set_number_of_days = "SET @number_of_days = $number_of_days";
+              if (mysqli_query($conn, $set_number_of_days) === FALSE) {
+                die("Error setting @number_of_days: " . mysqli_error($conn));
+              }
+              $nextAvailableQuery = file_get_contents($sql_file);
+
+              $dateResult = mysqli_query($conn, $nextAvailableQuery);
+              $nextAvailableDate = mysqli_fetch_assoc($dateResult)['Next_Available_Date'];
+              if ($nextAvailableDate == date('Y-m-d')) {
+                $nextAvailableDate = 'Today';
+              }
+              elseif ($nextAvailableDate == date('Y-m-d', strtotime('+1 day'))) {
+                $nextAvailableDate = 'Tomorrow';
+              }
+              echo "<h4>" . $nextAvailableDate . "</h4>";
+              ?>
+            </div>
+          </div>
+
+          <div class="row pt-3">
             <div class="col-3">
               <button id="BookStudio_btn" class="btn btn-primary" style="aspect-ratio: 2 / 1; width: 25%%;" onclick="redirectReservation(<?php echo $StudioID; ?>)">
                 Book this studio</button>
