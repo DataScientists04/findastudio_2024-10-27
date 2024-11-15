@@ -33,7 +33,7 @@ if (isset($_GET['StudioID'])) {
 
           <div class="row">
             <div class="col-6">
-              <?php echo "<h4>" . "Adress: " . "</h4>"; ?>
+              <?php echo "<h4>" . "Address: " . "</h4>"; ?>
             </div>
             <div class="col-6">
               <?php echo "<h4>" . $City . ", " . $Postal_code . "</h4>"; ?>
