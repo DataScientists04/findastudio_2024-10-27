@@ -2,12 +2,11 @@
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
-if (isset($_POST['StudioID']) && isset($_POST['UserID']) && isset($_POST['date'])) {
-  $StudioID = $_POST['StudioID'];
+if isset($_POST['UserID']) && isset($_POST['date'])) {
   $UserID = $_POST['UserID'];
   $date = $_POST['date'];
-  $query = "INSERT INTO reservation (StudioID, UserID, Reservation_Date) VALUES
-  ('$StudioID', '$UserID', '$date')";
+  $query = "INSERT INTO reservation (UserID, Reservation_Date) VALUES
+  ('$UserID', '$date')";
 
   if (mysqli_query($conn, $query)) {
     echo "Reservation successful!";
