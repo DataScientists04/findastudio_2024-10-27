@@ -1,7 +1,3 @@
-<div class="row">
-  <div class="col-md-2">
-  </div>
-  <div class="col-md-8">
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
@@ -23,13 +19,66 @@ if (isset($_GET['StudioID'])) {
       $Price = $row['Price'];
 
       // Output the data as needed
-      echo "Studio Name: " . $Studio_name . "<br>";
-      echo "City: " . $City . "<br>";
-      echo "Postal Code: " . $Postal_code . "<br>";
-      echo "Street: " . $Street . "<br>";
-      echo "Street No: " . $street_no . "<br>";
-      echo "Type: " . $Type . "<br>";
-      echo "Price: " . $Price . "<br>";
+      ?>
+      <div class="row d-flex align-items-end">
+        <div class="col-6">
+          <div class="row py-3">
+            <div class="col-6">
+              <?php echo "<h3>" . "Studio Name: " . "</h3>"; ?>
+            </div>
+            <div class="col-6">
+              <?php echo "<h3>" . $Studio_name . "</h3>"; ?>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <?php echo "<h4>" . "Adress: " . "</h4>"; ?>
+            </div>
+            <div class="col-6">
+              <?php echo "<h4>" . $City . ", " . $Postal_code . "</h4>"; ?>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+            </div>
+            <div class="col-6">
+              <?php echo "<h4>" . $Street . " " . $street_no . "</h4>"; ?>
+            </div>
+          </div>
+
+          <div class="row pt-3">
+            <div class="col-6">
+              <?php echo "<h4>" . "Type of Studio: " . "</h4>"; ?>
+            </div>
+            <div class="col-6">
+              <?php echo "<h4>" . $Type . "</h4>"; ?>
+            </div>
+          </div>
+
+          <div class="row pt-3">
+            <div class="col-6">
+              <?php echo "<h4>" . "Price: " . "</h4>"; ?>
+            </div>
+            <div class="col-6">
+              <?php echo "<h4>" . $Price . "</h4>"; ?>
+            </div>
+          </div>
+
+          <div class="row pt-3">
+            <div class="col-6">
+              <button id="BookStudio_btn" class="btn btn-primary" style="aspect-ratio: 2 / 1; width: 25%%;">Book this studio</button>
+            </div>
+            <div class="col-6">
+            </div>
+          </div>
+      </div>
+
+      <div class="col-6">
+        <img src="/FindAStudio/img/Studio2.jpg" alt="StudioImage" class="d-block h-100 w-100 object-fit-cover">
+      </div>
+    <?php
     }
   } else {
     echo "No data found";
@@ -40,10 +89,7 @@ if (isset($_GET['StudioID'])) {
   echo "No StudioID provided";
 }
 ?>
-  </div>
-  <div class="col-md-2">
-  </div>
-</div>
+
 <div class="row">
   <div class="col-md-3">
   </div>

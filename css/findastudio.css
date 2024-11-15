@@ -79,7 +79,7 @@ a {
   background-position: left bottom;
 }
 
-.card {
+.card, #StudioDetailView {
   background-color: var(--project-color5);
   color: var(--project-color1);
 }

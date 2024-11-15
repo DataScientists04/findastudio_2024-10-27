@@ -26,7 +26,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
       </div>
     </div>
 
-    <div id="StudioDetailView"></div>
+    <div id="StudioDetailView" class="p-5" style="display: none;"></div>
     <div id="AllStudiosView">
       <!-- Filters -->
       <div class="row">
