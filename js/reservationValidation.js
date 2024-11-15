@@ -24,7 +24,8 @@ class ReservationForm {
                 isValid = /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/.test(value);
                 break;
             case 'phone':
-                isValid = /^\d{10}$/.test(value);
+                const phonenumber = value.replace(/\s/g, '');
+                isValid =  /^(\+\d{1,3}|0)\d{1,14}$/.test(phonenumber);
                 break;
             case 'studio':
                 isValid = value.length >= 3;
@@ -59,7 +60,8 @@ class ReservationForm {
 
         if (isValid) {
             alert('Reservation submitted successfully!');
-            this.form.reset();
+            
+            window.location.href = '/FindAStudio/index.php';
         } else {
             alert('Please fill in all fields correctly.');
         }
