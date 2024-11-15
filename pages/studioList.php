@@ -14,6 +14,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
   <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
   <script src="/FindAStudio/js/StudioDetailView.js" async></script>
   <script src="/FindAStudio/js/Reset_AllStudiosView.js" async></script>
+  <script src="/FindAStudio/js/redirectReservation.js" async></script>
 </head>
 <body>
   <div class="container-fluid vh-100"> <!-- Main container -->
