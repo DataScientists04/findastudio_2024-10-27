@@ -25,7 +25,7 @@ if (isset($_GET['StudioID'])) {
     }
     $nextAvailableQuery = file_get_contents($sql_file);
     $result = mysqli_query($conn, $nextAvailableQuery);
-    
+
     $dateResult = mysqli_query($conn, $nextAvailableQuery);
     $nextAvailableDate = mysqli_fetch_assoc($dateResult)['Next_Available_Date'];
 
@@ -63,8 +63,6 @@ if (isset($_SESSION['UserID'])) {
   echo "Please log in to make a reservation.";
   exit;
 }
-
-mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -123,12 +121,60 @@ mysqli_close($conn);
             <input type="text" class="form-control" id="address" name="address" value="<?php echo $studioAddress; ?>" readonly>
           </div>
           <div class="mb-3">
-            <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="date" name="date" value="<?php echo $nextAvailableDate; ?>" required>
-          </div>
-          <div class="mb-3">
             <label for="price" class="form-label">Price</label>
             <input type="text" class="form-control" id="price" name="price" value="<?php echo $studioPrice . "€"; ?>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" class="form-control" id="Reservation_Date" name="Reservation_Date" value="<?php echo $nextAvailableDate; ?>" required>
+            <!-- Calendar-->
+            <?php
+            $specific_studio_id = $StudioID; // Set the specific StudioID
+            // Fetch the next 7 dates and their reservation statuses
+            $query = "
+                WITH RECURSIVE dates AS (
+                    SELECT CURDATE() AS date
+                    UNION ALL
+                    SELECT date + INTERVAL 1 DAY
+                    FROM dates
+                    WHERE date < CURDATE() + INTERVAL 6 DAY
+                )
+                SELECT d.date, IF(r.Reservation_Date IS NOT NULL, 'Reserved', 'Available') AS status
+                FROM dates d
+                LEFT JOIN reservation r ON r.StudioID = ? AND r.Reservation_Date = d.date
+                ORDER BY d.date
+            ";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $specific_studio_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            $dates = [];
+            $statuses = [];
+            while ($row = $result->fetch_assoc()) {
+                $dates[] = $row['date'];
+                $statuses[] = $row['status'];
+            }
+            ?>
+            <div class="table-responsive pt-3">
+              <table class="table ">
+                  <thead>
+                      <tr>
+                          <?php foreach ($dates as $date) : ?>
+                              <th><?php echo $date; ?></th>
+                          <?php endforeach; ?>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <?php foreach ($statuses as $status) : ?>
+                              <td><?php echo $status; ?></td>
+                          <?php endforeach;
+                          mysqli_close($conn);?>
+                      </tr>
+                  </tbody>
+              </table>
+            </div> <!-- Calendar end -->
           </div>
           <button type="submit" class="btn btn-primary">Reserve</button>
         </form>
