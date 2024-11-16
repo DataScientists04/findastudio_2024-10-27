@@ -78,6 +78,9 @@ a {
   border-color: var(--project-color2);
   background-position: left bottom;
 }
+.btn-primary:disabled {
+  border-color: var(--project-color2);
+}
 
 .card, #StudioDetailView {
   background-color: var(--project-color5);

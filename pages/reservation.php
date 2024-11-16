@@ -146,7 +146,7 @@ if (isset($_SESSION['UserID'])) {
               }
               if (empty($availableDates)) {
                 echo "<option>No available dates in the next 7 days</option>";
-                $reserve_btn_disable = true;
+                $submit_btn_disable = true;
               }
               else {
                 foreach ($availableDates as $availableDate) {
@@ -194,7 +194,7 @@ if (isset($_SESSION['UserID'])) {
               </table>
             </div> <!-- Calendar end -->
           </div>
-          <button type="submit" class="btn btn-primary" <?php if ($reserve_btn_disable) echo 'disabled'; ?>>Reserve</button>
+          <button type="submit" class="btn btn-primary" <?php if ($submit_btn_disable) echo 'disabled'; ?>>Reserve</button>
         </form>
       </div>
       <div class="col-md-3">

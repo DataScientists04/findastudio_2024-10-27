@@ -79,7 +79,7 @@ if (isset($_GET['StudioID'])) {
               if (mysqli_query($conn, $set_specific_studio_id) === FALSE) {
                 die("Error setting @specific_studio_id: " . mysqli_error($conn));
               }
-              $number_of_days = "14";
+              $number_of_days = "6";
               $set_number_of_days = "SET @number_of_days = $number_of_days";
               if (mysqli_query($conn, $set_number_of_days) === FALSE) {
                 die("Error setting @number_of_days: " . mysqli_error($conn));
@@ -88,20 +88,26 @@ if (isset($_GET['StudioID'])) {
 
               $dateResult = mysqli_query($conn, $nextAvailableQuery);
               $nextAvailableDate = mysqli_fetch_assoc($dateResult)['Next_Available_Date'];
-              if ($nextAvailableDate == date('Y-m-d')) {
-                $nextAvailableDate = 'Today';
-              }
-              elseif ($nextAvailableDate == date('Y-m-d', strtotime('+1 day'))) {
-                $nextAvailableDate = 'Tomorrow';
-              }
+              if ($nextAvailableDate) {
+                if ($nextAvailableDate == date('Y-m-d')) {
+                  $nextAvailableDate = 'Today';
+                }
+                elseif ($nextAvailableDate == date('Y-m-d', strtotime('+1 day'))) {
+                  $nextAvailableDate = 'Tomorrow';
+                }
               echo "<h4>" . $nextAvailableDate . "</h4>";
+              }
+              else {
+                echo "<h4>No free booking slots in the next 7 days</h4>";
+                $submit_btn_disable = true;
+              }
               ?>
             </div>
           </div>
 
           <div class="row pt-3">
             <div class="col-3">
-              <button id="BookStudio_btn" class="btn btn-primary" style="aspect-ratio: 2 / 1; width: 25%%;" onclick="redirectReservation(<?php echo $StudioID; ?>)">
+              <button id="BookStudio_btn" class="btn btn-primary" <?php if ($submit_btn_disable) echo 'disabled'; ?> style="aspect-ratio: 2 / 1; width: 25%%;" onclick="redirectReservation(<?php echo $StudioID; ?>)">
                 Book this studio</button>
             </div>
             <div class="col-9">
