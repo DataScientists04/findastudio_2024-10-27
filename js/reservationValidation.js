@@ -56,7 +56,7 @@ class ReservationForm {
         });
 
         if (isValid) {
-            alert('Reservation submitted successfully!');
+            // alert('Reservation submitted successfully!');
             this.form.submit();
         } else {
             alert('Please fill in all fields correctly.');
