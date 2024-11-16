@@ -57,8 +57,7 @@ class ReservationForm {
 
         if (isValid) {
             alert('Reservation submitted successfully!');
-            
-            window.location.href = '/FindAStudio/index.php';
+            this.form.submit();
         } else {
             alert('Please fill in all fields correctly.');
         }

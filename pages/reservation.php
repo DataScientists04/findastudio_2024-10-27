@@ -93,6 +93,7 @@ if (isset($_SESSION['UserID'])) {
       <div class="col-md-6">
         <form id="reservationForm" action="/FindAStudio/php/submitReservation.php" method="POST">
           <input type="hidden" name="UserID" value="<?php echo $UserID; ?>">
+          <input type="hidden" name="StudioID" value="<?php echo $StudioID; ?>">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <div class="row">
