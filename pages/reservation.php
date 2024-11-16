@@ -98,19 +98,19 @@ if (isset($_SESSION['UserID'])) {
             <label for="name" class="form-label">Name</label>
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" id="name" name="name" placeholder="First name" value="<?php echo $name; ?>" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="First name" value="<?php echo $name; ?>" required readonly>
               </div>
               <div class="col">
-                <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" value="<?php echo $surname; ?>" required>
+                <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" value="<?php echo $surname; ?>" required readonly>
               </div>
             </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
+            <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required readonly>
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
-            <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $phone; ?>" required>
+            <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $phone; ?>" required readonly>
           </div>
           <div class="mb-3">
             <label for="studio" class="form-label">Studio</label>
@@ -126,29 +126,42 @@ if (isset($_SESSION['UserID'])) {
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="date" name="date" value="<?php echo $nextAvailableDate; ?>" required>
+            <select type="date" class="form-control" id="date" name="date" required>
+              <?php
+              $specific_studio_id = $StudioID;
+              $specific_user_id = $UserID;
+              // Fetch the next 7 dates and their reservation statuses
+              $sql_file = $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/sql/StudioBookedStatus.sql";
+              $query = file_get_contents($sql_file);
+              $stmt = $conn->prepare($query);
+              $stmt->bind_param("ii", $specific_user_id, $specific_studio_id);
+              $stmt->execute();
+              $result = $stmt->get_result();
+
+              $availableDates = [];
+              while ($row = $result->fetch_assoc()) {
+                  if ($row['status'] === 'Available') {
+                      $availableDates[] = $row['date'];
+                  }
+              }
+              if (empty($availableDates)) {
+                echo "<option>No available dates in the next 7 days</option>";
+                $reserve_btn_disable = true;
+              }
+              else {
+                foreach ($availableDates as $availableDate) {
+                  echo "<option value='$availableDate'>$availableDate</option>";
+                }
+              }
+              ?>
+            </select>
             <!-- Calendar-->
             <?php
             $specific_studio_id = $StudioID;
             $specific_user_id = $UserID;
             // Fetch the next 7 dates and their reservation statuses
-            $query = "
-                WITH RECURSIVE dates AS (
-                    SELECT CURDATE() AS date
-                    UNION ALL
-                    SELECT date + INTERVAL 1 DAY
-                    FROM dates
-                    WHERE date < CURDATE() + INTERVAL 6 DAY
-                )
-                SELECT d.date,
-                  CASE WHEN r.UserID = ? THEN 'Booked by you'
-                  WHEN r.Reservation_Date IS NOT NULL THEN 'Reserved'
-                  ELSE 'Available'
-                  END AS status
-                FROM dates d
-                LEFT JOIN reservation r ON r.StudioID = ? AND r.Reservation_Date = d.date
-                ORDER BY d.date
-            ";
+            $query = $sql_file = $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/sql/StudioBookedStatus.sql";
+            $query = file_get_contents($sql_file);
             $stmt = $conn->prepare($query);
             $stmt->bind_param("ii", $specific_user_id, $specific_studio_id);
             $stmt->execute();
@@ -181,7 +194,7 @@ if (isset($_SESSION['UserID'])) {
               </table>
             </div> <!-- Calendar end -->
           </div>
-          <button type="submit" class="btn btn-primary">Reserve</button>
+          <button type="submit" class="btn btn-primary" <?php if ($reserve_btn_disable) echo 'disabled'; ?>>Reserve</button>
         </form>
       </div>
       <div class="col-md-3">
