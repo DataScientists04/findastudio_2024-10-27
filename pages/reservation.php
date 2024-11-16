@@ -126,10 +126,11 @@ if (isset($_SESSION['UserID'])) {
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="date" name="date" min="<?php echo $nextAvailableDate; ?>" required>
+            <input type="date" class="form-control" id="date" name="date" value="<?php echo $nextAvailableDate; ?>" required>
             <!-- Calendar-->
             <?php
-            $specific_studio_id = $StudioID; // Set the specific StudioID
+            $specific_studio_id = $StudioID;
+            $specific_user_id = $UserID;
             // Fetch the next 7 dates and their reservation statuses
             $query = "
                 WITH RECURSIVE dates AS (
@@ -139,13 +140,17 @@ if (isset($_SESSION['UserID'])) {
                     FROM dates
                     WHERE date < CURDATE() + INTERVAL 6 DAY
                 )
-                SELECT d.date, IF(r.Reservation_Date IS NOT NULL, 'Reserved', 'Available') AS status
+                SELECT d.date,
+                  CASE WHEN r.UserID = ? THEN 'Booked by you'
+                  WHEN r.Reservation_Date IS NOT NULL THEN 'Reserved'
+                  ELSE 'Available'
+                  END AS status
                 FROM dates d
                 LEFT JOIN reservation r ON r.StudioID = ? AND r.Reservation_Date = d.date
                 ORDER BY d.date
             ";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("i", $specific_studio_id);
+            $stmt->bind_param("ii", $specific_user_id, $specific_studio_id);
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -157,7 +162,7 @@ if (isset($_SESSION['UserID'])) {
             }
             ?>
             <div class="table-responsive pt-3">
-              <table class="table ">
+              <table class="table">
                   <thead>
                       <tr>
                           <?php foreach ($dates as $date) : ?>

@@ -15,6 +15,9 @@ session_start();
           <a class="nav-item nav-link" href="/FindAStudio/#studios_anchor">Studios</a>
           <a class="nav-item nav-link" href="/FindAStudio/#map_anchor">Map</a>
           <a class="nav-item nav-link" href="/FindAStudio/#reviews_anchor">Reviews</a>
+          <?php if(isset($_SESSION['Email'])): ?>
+          <a class="nav-item nav-link" href="/FindAStudio/pages/MyReservations.php">Your booked studios</a>
+          <?php endif; ?>
         </div>
       </div>
     </nav>
