@@ -30,7 +30,7 @@ if (isset($_GET['StudioID'])) {
     $nextAvailableDate = mysqli_fetch_assoc($dateResult)['Next_Available_Date'];
 
     $studioName = $studio['Studio_name'];
-    $studioAddress = "{$studio['Street']} {$studio['street_no']}, {$studio['City']}, {$studio['Postal_code']}";
+    $studioAddress = "{$studio['Street']} {$studio['street_no']}, {$studio['Postal_code']} {$studio['City']}";
     $studioPrice = $studio['Price'];
   } else {
     echo "Studio not found.";
