@@ -23,7 +23,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
       <div class="col-md-2">
       </div>
       <div class="col-md-8 text-center">
-        <h2 class="pb-3">Your Reservations</h2>
+        <h2 class="pb-3">Your upcoming reservations</h2>
         <p class="pb-3">Welcome to your reservations page! Here, you'll find all the details about your upcoming studio bookings.</p>
         <p class="pb-3">If you're looking to book more studio time, check out our available studios <a href="/FindAStudio/pages/studioList.php"><u>here</u></a>.
         We have a wide range of options to suit your needs, whether you're a professional artist or a weekend rockstar.
@@ -51,9 +51,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
               $Type = $row['Type'];
               $Price = $row['Price'];
               $Reservation_Date = $row['Reservation_Date'];
-              ?>
+              if ($Reservation_Date >= date('Y-m-d')) {?>
               <div class="row d-flex align-items-end border-top">
-                <div class="row pt-3 py-1">
+                <div class="row py-1">
                   <div class="col-6">
                     <?php echo "<h3>" . "Reservation Date: " . "</h3>"; ?>
                   </div>
@@ -99,6 +99,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
                 </div>
               </div>
               <?php
+              } // if Reservation_Date >= today end
             }
           } else {
             ?>

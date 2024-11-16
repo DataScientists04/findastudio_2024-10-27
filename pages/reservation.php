@@ -110,7 +110,7 @@ if (isset($_SESSION['UserID'])) {
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
-            <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $phone; ?>" required readonly>
+            <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $phone; ?>" required>
           </div>
           <div class="mb-3">
             <label for="studio" class="form-label">Studio</label>
@@ -194,7 +194,10 @@ if (isset($_SESSION['UserID'])) {
               </table>
             </div> <!-- Calendar end -->
           </div>
-          <button type="submit" class="btn btn-primary" <?php if ($submit_btn_disable) echo 'disabled'; ?>>Reserve</button>
+          <span class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary" <?php if ($submit_btn_disable) echo 'disabled'; ?>>Reserve</button>
+            <a class="btn btn-primary" href="/FindAStudio/pages/studioList.php">Back to all studios</a>
+          </span>
         </form>
       </div>
       <div class="col-md-3">
