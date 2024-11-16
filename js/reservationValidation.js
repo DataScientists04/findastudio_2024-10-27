@@ -30,12 +30,9 @@ class ReservationForm {
             case 'studio':
                 isValid = value.length >= 3;
                 break;
-            case 'date':
-                isValid = new Date(value) >= new Date();
-                break;
-            case 'time':
-                isValid = value !== '';
-                break;
+            /*case 'date':
+                isValid = new Date(value) >= new Date().toISOString().split('T')[0];
+                break; */
         }
 
         this.toggleFieldValidation(field, isValid);
