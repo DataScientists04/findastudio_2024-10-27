@@ -1,7 +1,7 @@
 <?php
+session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 
-// Get StudioID from the URL parameters
 if (isset($_GET['StudioID'])) {
   $StudioID = $_GET['StudioID'];
 
@@ -17,10 +17,10 @@ if (isset($_GET['StudioID'])) {
       $street_no = $row['street_no'];
       $Type = $row['Type'];
       $Price = $row['Price'];
-
-      // Output the data as needed
       ?>
+      <!-- Start of the row for studio details and image -->
       <div class="row d-flex align-items-end">
+        <!-- Start of the column for studio details -->
         <div class="col-6">
           <div class="row py-3">
             <div class="col-6">
@@ -107,17 +107,56 @@ if (isset($_GET['StudioID'])) {
 
           <div class="row pt-3">
             <div class="col-3">
-              <button id="BookStudio_btn" class="btn btn-primary" <?php if ($submit_btn_disable) echo 'disabled'; ?> style="aspect-ratio: 2 / 1; width: 25%%;" onclick="redirectReservation(<?php echo $StudioID; ?>)">
-                Book this studio</button>
+              <?php
+              if(isset($_SESSION['Email'])) {?>
+                <a href="/FindAStudio/pages/reservation.php?StudioID=<?php echo $StudioID; ?>" type="button" class="btn btn-primary d-flex align-items-center justify-content-center"
+                <?php if ($submit_btn_disable) echo 'disabled'; ?> style="aspect-ratio: 2 / 1; width: 25%%;">
+                Book this studio
+                </a>
+
+              <?php
+              }
+              else {
+              ?>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AccountNeeded_Modal"
+              <?php if ($submit_btn_disable) echo 'disabled'; ?> style="aspect-ratio: 2 / 1; width: 25%%;">
+              Book this studio
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="AccountNeeded_Modal" tabindex="-1" aria-labelledby="AccountNeeded_Modal_Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="AccountNeeded_Modal_Label">Book A Studio</h3>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      You need an account to book a studio
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                      <div>
+                        <a type="button" class="btn btn-primary" href="/FindAStudio/pages/SignUp.php">Sign up</a>
+                        <p></p>
+                      </div>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php
+              }
+              ?>
+
             </div>
             <div class="col-9">
             </div>
           </div>
-      </div>
-
-      <div class="col-6">
-        <img src="/FindAStudio/img/Studio2.jpg" alt="StudioImage" class="d-block h-100 w-100 object-fit-cover">
-      </div>
+        </div> <!-- Closing col-6 for text -->
+        <!-- Start of the column for the image -->
+        <div class="col-6">
+          <img src="/FindAStudio/img/Studio2.jpg" alt="StudioImage" class="d-block h-100 w-100 object-fit-cover">
+        </div>
+      </div> <!-- Closing row for studio details and image -->
     <?php
     }
   } else {
@@ -130,6 +169,7 @@ if (isset($_GET['StudioID'])) {
 }
 ?>
 
+<!-- Footer Buttons -->
 <div class="row">
   <div class="col-md-3">
   </div>
@@ -141,5 +181,3 @@ if (isset($_GET['StudioID'])) {
   <div class="col-md-3">
   </div>
 </div>
-
-<script src="/FindAStudio/js/redirectReservation.js"></script>
