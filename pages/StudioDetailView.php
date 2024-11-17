@@ -131,12 +131,11 @@ if (isset($_GET['StudioID'])) {
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      You need an account to book a studio
+                      To book a studio, please sign up or log in using the user button at the top right corner.
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
                       <div>
                         <a type="button" class="btn btn-primary" href="/FindAStudio/pages/SignUp.php">Sign up</a>
-                        <p></p>
                       </div>
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
