@@ -1,4 +1,4 @@
-CREATE DATABASE find_a_studio;
+CREATE OR REPLACE DATABASE find_a_studio;
 
 CREATE OR REPLACE TABLE find_a_studio.studio (
     StudioID int Not Null AUTO_INCREMENT,
