@@ -71,6 +71,7 @@ if (isset($_SESSION['UserID'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
   <title>Reservation</title>
+  <link rel="icon" type="image/x-icon" href="/FindAStudio/img/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../css/findastudio.css">
   <link rel="stylesheet" type="text/css" href="../fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
