@@ -1,5 +1,5 @@
 <?php
-session_start();
+if(!isset($_SESSION)) { session_start(); };
 include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
 ?>
 
@@ -37,7 +37,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
           <input type="text" class="form-control" id="search-name">
         </div>
         <div class="col-sm w-50 py-1">
-          <label for="search-name" class="form-label">Max. Price</label>
+          <label for="search-name" class="form-label">Max. price per hour</label>
           <input type="number" class="form-control" id="search-price" placeholder="€">
         </div>
         <div class="col-sm w-50 py-1">

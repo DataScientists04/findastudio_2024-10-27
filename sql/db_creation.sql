@@ -1,6 +1,6 @@
 CREATE DATABASE find_a_studio;
 
-CREATE TABLE find_a_studio.studio (
+CREATE OR REPLACE TABLE find_a_studio.studio (
     StudioID int Not Null AUTO_INCREMENT,
     Studio_name varchar(32) Not Null,
     City varchar(32),
@@ -12,7 +12,7 @@ CREATE TABLE find_a_studio.studio (
     
     PRIMARY KEY(StudioID));
     
- CREATE TABLE find_a_studio.user (
+ CREATE OR REPLACE TABLE find_a_studio.user (
      UserID int Not Null AUTO_INCREMENT,
      First_Name varchar(24),
      Last_Name varchar(24),
@@ -22,7 +22,7 @@ CREATE TABLE find_a_studio.studio (
      
      PRIMARY KEY (UserID));
      
-CREATE TABLE find_a_studio.reservation (
+CREATE OR REPLACE TABLE find_a_studio.reservation (
     ReservationID int Not Null AUTO_INCREMENT,
     Reservation_Date date,
     UserID int,

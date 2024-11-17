@@ -1,5 +1,5 @@
 <?php
-session_start();
+if(!isset($_SESSION)) { session_start(); };
 ?>
 <script src="/FindAStudio/js/jquery.min.js"></script>
 <script src="/FindAStudio/js/LoginDropdown.js"></script>

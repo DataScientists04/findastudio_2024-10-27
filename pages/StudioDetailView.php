@@ -1,7 +1,7 @@
 <?php
-session_start();
+if(!isset($_SESSION)) { session_start(); };
 include_once $_SERVER['DOCUMENT_ROOT'] . "/FindAStudio/php/ConnectDB.php";
-
+$submit_btn_disable = false;
 if (isset($_GET['StudioID'])) {
   $StudioID = $_GET['StudioID'];
 
